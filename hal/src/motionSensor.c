@@ -11,7 +11,7 @@ void MotionSensor_init()
     runCommand("config-pin p9.15 gpio");
     writeToFile("/sys/class/gpio/gpio48/direction", "in");
     stop = false;
-    // pthread_create();
+    // pthread_create();    
 }
 
 void MotionSensor_cleanup()

@@ -8,14 +8,24 @@
 #include <linux/i2c-dev.h>
 
 #define BUS1 "/dev/i2c-1"
-#define I2C_ADDRESS 0x1C
-#define WHO_AM_I 0x2A
-#define XMSB 0x01
-#define XLSB 0x02
-#define YMSB 0x03
-#define YLSB 0x04
-#define ZMSB 0x05
-#define ZLSB 0x06
+#define I2C_ADDRESS 0x69
+#define WHO_AM_I 0x00
+#define AXMSB 0x2d
+#define AXLSB 0x2e
+#define AYMSB 0x2f
+#define AYLSB 0x30
+#define AZMSB 0x31
+#define AZLSB 0x32
+#define GXMSB 0x33
+#define GXLSB 0x34
+#define GYMSB 0x35
+#define GYLSB 0x36
+#define GZMSB 0x37
+#define GZLSB 0x38
+
+// config-pin P9_18 i2c
+// config-pin P9_17 i2c
+// i2cset -y 1 0x69 0x06 0x00 this enables the icm 20948
 
 static int i2cFile;
 void AccelStart();
@@ -42,7 +52,7 @@ void AccelStart() {
 }
 
 void AccelStop() {
-       char ar[2];
+    char ar[2];
     ar[0] = 0x2A;
     ar[1] = 0x00;
     write(i2cFile, ar, 2);
