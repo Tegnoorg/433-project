@@ -1,0 +1,9 @@
+config-pin P9_18 i2c
+i2cdetect -y -r 1
+
+
+i2cset -y 1 0x69 0x05 0x70
+
+config-pin P9_18 i2c
+config-pin P9_17 i2c
+i2cset -y 1 0x69 0x06 0x00
