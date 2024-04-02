@@ -91,7 +91,7 @@ int main() {
         total_x += accel[0];
         total_y += accel[1];
         total_z += accel[2];
-        if (should_terminate()) { 
+        if (1) { //add a terminate value
             break;
         }
         usleep(1000000);
