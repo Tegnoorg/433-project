@@ -8,8 +8,10 @@ static bool motionDetected = false;
 
 void MotionSensor_init()
 {
-    runCommand("config-pin p9.15 gpio");
-    writeToFile("/sys/class/gpio/gpio48/direction", "in");
+    // runCommand("config-pin p9.15 gpio");
+    // writeToFile("/sys/class/gpio/gpio48/direction", "in");
+    runCommand("config-pin p9.23 gpio");
+    writeToFile("/sys/class/gpio/gpio49/direction", "in");
     stop = false;
     // pthread_create();
 }
@@ -29,7 +31,7 @@ static void* motionThread(void* args){
     (void)args;
     
     while(!stop) {
-        motionDetected = readIntFromFile("/sys/class/gpio/gpio48/value");
+        motionDetected = readIntFromFile("/sys/class/gpio/gpio49/value");
         sleepForMs(2000);
     }
 
