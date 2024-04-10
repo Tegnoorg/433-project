@@ -1,10 +1,10 @@
 //implementation file for functions pertaining to the light sensor
-#include "include/lightSensor.h"
+#include "lightSensor.h"
 
-#define A2D_FILE_VOLTAGE1 "/sys/bus/iio/devices/iio:device0/in_voltage1_raw"
+#define A2D_FILE_VOLTAGE1 "/sys/bus/iio/devices/iio:device0/in_voltage2_raw"
 
 
-int getVoltage1Reading(){
+static int getLightSeonsor(){
 // Open file
     FILE *f = fopen(A2D_FILE_VOLTAGE1, "r");
     if (!f) {
@@ -22,4 +22,13 @@ int getVoltage1Reading(){
     // Close file
     fclose(f);
     return a2dReading;
+}
+
+
+bool isLightOn(void){
+    if(getLightSeonsor() >= 1200){
+        return true;
+    } else {
+        return false;
+    }
 }

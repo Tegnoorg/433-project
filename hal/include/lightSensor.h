@@ -3,5 +3,5 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-//get voltage reading
-int getVoltage1Reading();
+//returns true if lights are on, false otherwise
+bool isLightOn(void);

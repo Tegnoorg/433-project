@@ -1,0 +1,37 @@
+[
+{
+  "directory": "/home/lew/cmpt433/work/433-project/build/hal",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/lew/cmpt433/work/433-project/hal/hal/include -I/home/lew/cmpt433/work/433-project/hal/include -g -pthread -g -Wall -Werror -Wpedantic -Wextra -fdiagnostics-color -std=gnu11 -o CMakeFiles/hal.dir/src/forceSensor.c.o -c /home/lew/cmpt433/work/433-project/hal/src/forceSensor.c",
+  "file": "/home/lew/cmpt433/work/433-project/hal/src/forceSensor.c"
+},
+{
+  "directory": "/home/lew/cmpt433/work/433-project/build/hal",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/lew/cmpt433/work/433-project/hal/hal/include -I/home/lew/cmpt433/work/433-project/hal/include -g -pthread -g -Wall -Werror -Wpedantic -Wextra -fdiagnostics-color -std=gnu11 -o CMakeFiles/hal.dir/src/hardwareCommands.c.o -c /home/lew/cmpt433/work/433-project/hal/src/hardwareCommands.c",
+  "file": "/home/lew/cmpt433/work/433-project/hal/src/hardwareCommands.c"
+},
+{
+  "directory": "/home/lew/cmpt433/work/433-project/build/hal",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/lew/cmpt433/work/433-project/hal/hal/include -I/home/lew/cmpt433/work/433-project/hal/include -g -pthread -g -Wall -Werror -Wpedantic -Wextra -fdiagnostics-color -std=gnu11 -o CMakeFiles/hal.dir/src/icm20948.c.o -c /home/lew/cmpt433/work/433-project/hal/src/icm20948.c",
+  "file": "/home/lew/cmpt433/work/433-project/hal/src/icm20948.c"
+},
+{
+  "directory": "/home/lew/cmpt433/work/433-project/build/hal",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/lew/cmpt433/work/433-project/hal/hal/include -I/home/lew/cmpt433/work/433-project/hal/include -g -pthread -g -Wall -Werror -Wpedantic -Wextra -fdiagnostics-color -std=gnu11 -o CMakeFiles/hal.dir/src/lightSensor.c.o -c /home/lew/cmpt433/work/433-project/hal/src/lightSensor.c",
+  "file": "/home/lew/cmpt433/work/433-project/hal/src/lightSensor.c"
+},
+{
+  "directory": "/home/lew/cmpt433/work/433-project/build/hal",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/lew/cmpt433/work/433-project/hal/hal/include -I/home/lew/cmpt433/work/433-project/hal/include -g -pthread -g -Wall -Werror -Wpedantic -Wextra -fdiagnostics-color -std=gnu11 -o CMakeFiles/hal.dir/src/motionSensor.c.o -c /home/lew/cmpt433/work/433-project/hal/src/motionSensor.c",
+  "file": "/home/lew/cmpt433/work/433-project/hal/src/motionSensor.c"
+},
+{
+  "directory": "/home/lew/cmpt433/work/433-project/build/app",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/lew/cmpt433/work/433-project/app/include -I/home/lew/cmpt433/work/433-project/hal/include -g -pthread -g -Wall -Werror -Wpedantic -Wextra -fdiagnostics-color -std=gnu11 -o CMakeFiles/light_sampler.dir/src/main.c.o -c /home/lew/cmpt433/work/433-project/app/src/main.c",
+  "file": "/home/lew/cmpt433/work/433-project/app/src/main.c"
+},
+{
+  "directory": "/home/lew/cmpt433/work/433-project/build/app",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/lew/cmpt433/work/433-project/app/include -I/home/lew/cmpt433/work/433-project/hal/include -g -pthread -g -Wall -Werror -Wpedantic -Wextra -fdiagnostics-color -std=gnu11 -o CMakeFiles/light_sampler.dir/src/network.c.o -c /home/lew/cmpt433/work/433-project/app/src/network.c",
+  "file": "/home/lew/cmpt433/work/433-project/app/src/network.c"
+}
+]
