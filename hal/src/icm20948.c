@@ -66,6 +66,7 @@ static void* accelThreadFn(void* args);
 // static void* terminalThreadFn(void* args);
 static void readI2cReg(int i2cFileDesc, unsigned char regAddr);
 // static unsigned char readI2cReg2(int i2cFileDesc, unsigned char regAddr);
+// void getDistance(void);
 
 void ICM20948_init(void)
 {
@@ -100,6 +101,9 @@ static void* accelThreadFn(void* args)
         //         readI2cReg2(i2cFileDesc, GYMSB), readI2cReg2(i2cFileDesc, GYLSB),
         //         readI2cReg2(i2cFileDesc, GZMSB), readI2cReg2(i2cFileDesc, GZLSB));
         readI2cReg(i2cFileDesc, 0xad);
+        getDistance();
+        printf("distance: %f\n", returnDistance());
+        resetDistance();
         sleepForMs(100);
     }
     return NULL;

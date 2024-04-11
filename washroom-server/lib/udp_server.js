@@ -40,6 +40,7 @@ exports.listen = function(server) {
 	// io.connect('http://192.168.7.2:8088/');
 	// var socket = io.connect();
 	setInterval(getMotionSensorReading, 2000);
+	setInterval(getForceSensorReading, 2000);
 	// handleCommand(socket);
 	// io.sockets.on('connection', function(socket) {
 	// 	console.log("ajhdkfadfhaksdfhaklsdfhasdhfhlkjsadflakfhdahsfakjshdfakds");
@@ -125,6 +126,35 @@ function getMotionSensorReading() {
 		}
 		// var reply = message.toString('utf8')
 		// socket.emit('commandReply', reply);
+
+		client.close();
+
+	});
+}
+
+var lastForceSensorReading = '2';
+function getForceSensorReading() {
+	var client = dgram.createSocket('udp4');
+	var buffer = "force";
+	client.send(buffer, 0, buffer.length, PORT, HOST, function(err, bytes) {
+		if (err) 
+			throw err;
+		console.log('UDP message sent to ' + HOST +':'+ PORT);
+	});
+
+	client.on('listening', function () {
+		var address = client.address();
+		console.log('UDP Client: listening on ' + address.address + ":" + address.port);
+	});
+	client.on('message', function (message, remote) {
+		console.log("UDP Client: message Rx" + remote.address + ':' + remote.port +' - ' + message);
+		let newReading = message.toString('utf-8');
+		if (lastForceSensorReading !== newReading) {
+			lastForceSensorReading = newReading;
+			//update db
+			updateDB(newReading);
+			console.log('update db');
+		}
 
 		client.close();
 

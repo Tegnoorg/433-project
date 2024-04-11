@@ -13,7 +13,7 @@
 #include <netdb.h>
 #include <unistd.h>
 // #include "shutdown.h"
-// #include "../../hal/include/hal/beatPattern.h"
+#include "../../hal/include/forceSensor.h"
 #include "../../hal/include/motionSensor.h"
 
 static pthread_t networkThreadId;
@@ -103,19 +103,20 @@ static void sendResponse(struct sockaddr_in sinRemote, int socketDescriptor,
         if (strncmp(messageRx, "stop", strnlen("stop", MAX_LEN)) == 0) {
             // Shutdown_signalShutdown();
             snprintf(messageTx, MAX_LEN, "Program terminating.\n");
-        } else if ((strncmp(messageRx, "help", strnlen("help", MAX_LEN)) == 0) || 
-                   (strncmp(messageRx, "?", strnlen("?", MAX_LEN)) == 0)) {
-            char* helpMessage = 
-                "Accepted command examples: \n"
-                "volumeUp     -- increase the volume by 5 (MAX: 100).\n"
-                "volumeDown   -- decrease the volume by 5 (MIN: 0).\n"
-                "tempoUp      -- increase the bpm by 5    (MAX: 300).\n"
-                "tempoDown    -- decrease the bpm by 5    (MIN: 40).\n"
-                "mode #       -- change beat mode to mode # (between 0 and 2).\n"
-                "play #       -- play drum sound # (between 1 and 3).\n"
-                "stop         -- cause the server program to end.\n";
-            snprintf(messageTx, MAX_LEN, helpMessage);
         } 
+        // else if ((strncmp(messageRx, "help", strnlen("help", MAX_LEN)) == 0) || 
+        //            (strncmp(messageRx, "?", strnlen("?", MAX_LEN)) == 0)) {
+        //     char* helpMessage = 
+        //         "Accepted command examples: \n"
+        //         "volumeUp     -- increase the volume by 5 (MAX: 100).\n"
+        //         "volumeDown   -- decrease the volume by 5 (MIN: 0).\n"
+        //         "tempoUp      -- increase the bpm by 5    (MAX: 300).\n"
+        //         "tempoDown    -- decrease the bpm by 5    (MIN: 40).\n"
+        //         "mode #       -- change beat mode to mode # (between 0 and 2).\n"
+        //         "play #       -- play drum sound # (between 1 and 3).\n"
+        //         "stop         -- cause the server program to end.\n";
+        //     snprintf(messageTx, MAX_LEN, helpMessage);
+        // } 
         // else if ((strncmp(messageRx, "volumeUp", strnlen("volumeUp", MAX_LEN)) == 0)){
         //     increaseVolume();
         //     snprintf(messageTx, MAX_LEN, "volume %d\n", 
@@ -173,6 +174,8 @@ static void sendResponse(struct sockaddr_in sinRemote, int socketDescriptor,
         else if (strncmp(messageRx, "motion", strnlen("motion", MAX_LEN)) == 0) {
             // char buff[MAX_LEN];
             snprintf(messageTx, MAX_LEN, "%d", isMotionDetected());
+        } else if (strncmp(messageRx, "force", strnlen("force", MAX_LEN)) == 0) {
+            snprintf(messageTx, MAX_LEN, "%d", hasForce());
         }
  
             else {
