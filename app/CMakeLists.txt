@@ -27,3 +27,9 @@ add_custom_command(TARGET light_sampler POST_BUILD
       "~/cmpt433/public/server-copy"
    COMMENT "Copying NodeJS server to public NFS directory")
 
+add_custom_command(TARGET light_sampler POST_BUILD
+   COMMAND "${CMAKE_COMMAND}" -E copy_directory
+      "${CMAKE_SOURCE_DIR}/washroom-server"
+      "~/cmpt433/public/washroom-server-copy"
+   COMMENT "Copying NodeJS server to public NFS directory")
+

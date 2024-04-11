@@ -171,7 +171,7 @@ static void sendResponse(struct sockaddr_in sinRemote, int socketDescriptor,
         //     snprintf(messageTx, MAX_LEN*2, "uptime %s", buff);
         // }
         else if (strncmp(messageRx, "motion", strnlen("motion", MAX_LEN)) == 0) {
-            char buff[MAX_LEN];
+            // char buff[MAX_LEN];
             snprintf(messageTx, MAX_LEN, "%d", isMotionDetected());
         }
  

@@ -5,20 +5,20 @@
 
 int main(void)
 {
-    ICM20948_init();
+    // ICM20948_init();
     MotionSensor_init();
     Network_init();
 
     // Shutdown_waitForShutdown();
-    resetDistance();
-    resetTimePassed();
+    // resetDistance();
+    // resetTimePassed();
     while (1) {
-        getDistance();
+        // getDistance();
     };
-    double time = returnTimePassed();
-    double distance = returnDistance();
-    double totalDistance = distance*time;
-    printf("%f", totalDistance);
+    // double time = returnTimePassed();
+    // double distance = returnDistance();
+    // double totalDistance = distance*time;
+    // printf("%f", totalDistance);
     // Shutdown_cleanup();
     // Accelerometer_cleanup();
     // beatPattern_cleanup();
