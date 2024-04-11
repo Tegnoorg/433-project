@@ -13,6 +13,7 @@
 #include <netdb.h>
 #include <unistd.h>
 // #include "shutdown.h"
+#include "../../hal/include/lightSensor.h"
 #include "../../hal/include/forceSensor.h"
 #include "../../hal/include/motionSensor.h"
 
@@ -176,9 +177,10 @@ static void sendResponse(struct sockaddr_in sinRemote, int socketDescriptor,
             snprintf(messageTx, MAX_LEN, "%d", isMotionDetected());
         } else if (strncmp(messageRx, "force", strnlen("force", MAX_LEN)) == 0) {
             snprintf(messageTx, MAX_LEN, "%d", hasForce());
-        }
+        } else if (strncmp(messageRx, "light", strnlen("light", MAX_LEN)) == 0) {
+            snprintf(messageTx, MAX_LEN, "%d", isLightOn());
  
-            else {
+        } else {
             snprintf(messageTx, MAX_LEN, "Unknown command.\n");
         }
 

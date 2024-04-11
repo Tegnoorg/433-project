@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "lightsensor.h": "c",
-        "cmath": "c"
+        "cmath": "c",
+        "iterator": "c"
     }
 }

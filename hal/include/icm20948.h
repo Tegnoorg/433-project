@@ -7,13 +7,10 @@ void ICM20948_init(void);
 void ICM20948_cleanup(void);
 //gets distance and is stored in distance variable
 void getDistance(void);
-//returns distance variable
-double returnDistance(void);
-//resets the distance variable
+//returns the total distnace
+double totalDistance(void);
+//resets the distance values
 void resetDistance(void);
-//resets time
-void resetTimePassed(void);
-//returns the time
-double returnTimePassed(void);
+
 
 #endif 

@@ -7,6 +7,7 @@
 #include <pthread.h>
 #include <linux/i2c-dev.h>
 #include <math.h>
+#include "icm20948.h"
 #include "hardwareCommands.h"
 
 #define I2CDRV_LINUX_BUS1 "/dev/i2c-1"
@@ -55,6 +56,9 @@ static double lastZValGyro = 0;
 static double xgc = 0;//total x gyro scope movemnt
 static double ygc = 0;
 static double zgc = 0;
+static double velocityx = 0;
+static double velocityy = 0;
+static double velocityz = 0;
 static double distance = 0;
 static double timePassed = 0;
 
@@ -101,10 +105,10 @@ static void* accelThreadFn(void* args)
         //         readI2cReg2(i2cFileDesc, GYMSB), readI2cReg2(i2cFileDesc, GYLSB),
         //         readI2cReg2(i2cFileDesc, GZMSB), readI2cReg2(i2cFileDesc, GZLSB));
         readI2cReg(i2cFileDesc, 0xad);
-        getDistance();
-        printf("distance: %f\n", returnDistance());
-        resetDistance();
-        sleepForMs(100);
+        // getDistance();
+        // printf("distance: %f\n", returnDistance());
+        // resetDistance();
+        // sleepForMs(100);
     }
     return NULL;
 }
@@ -187,7 +191,42 @@ static void readI2cReg(int i2cFileDesc, unsigned char regAddr)
 //     return value;
 // }
 
+//use acceleration to get velocity v = a*t*Vi
+static double getVelocity(double acceleration, int n){
+    if(n == 0){
+        return acceleration*(0.1)+velocityx;
+    } else if(n == 1 ){
+        return acceleration*(0.1)+velocityy;
+    } else{
+        return acceleration*(0.1)+velocityz;
+    }
+}
 
+// using the distance formula of d = v*t + 1/2*a*t^2
+static void calculateDistance(double acceleration, int n){
+
+    double velocity = 0;
+    \
+    if(n == 0){
+        velocityx = getVelocity(acceleration,0);
+        velocity = velocityx;
+    } else if(n == 1){
+        velocityy = getVelocity(acceleration,1);
+        velocity = velocityy;
+    } else{
+        velocityz = getVelocity(acceleration,2);
+        velocity = velocityz;
+    }
+    
+    double distanceTraveledIn100Ms = velocity*(0.1) + (acceleration*(0.005));
+        if(distanceTraveledIn100Ms <  0){
+            distance = distanceTraveledIn100Ms * -1;
+        } else{
+            distance = distanceTraveledIn100Ms;
+        }
+}
+
+//returns the distance every 100ms
 void getDistance(void){
     double correctedX = 0;
     double correctedY = 0;
@@ -223,45 +262,40 @@ void getDistance(void){
         correctedZ = lastZValAcc/cos(zgc);
     }
 
-    if( (correctedX > 0.05) || (correctedY > 0.05) || ((correctedZ - 1) > 0.05) || (correctedX < -0.05) || (correctedY < -0.05) || ((correctedZ - 1) <  -0.05)){
-        timePassed += 0.1;
 
-        if(correctedX > 0.05){
-            distance += correctedX;
-        }
-        if(correctedY > 0.05){
-            distance += correctedY;
-        }
-        if((correctedZ - 1) > 0.05){
-            distance += (correctedZ - 1);
-        }
-        if(correctedX < -0.05){
-            distance += (correctedX*-1);
-        }
-        if(correctedY < -0.05){
-            distance += (correctedY*-1);
-        }
-        if((correctedZ - 1) <  -0.05){
-            distance += ((correctedZ - 1)*-1);
-        }
+    if(correctedX > 0.05){
+        calculateDistance(correctedX,0);
     }
+    if(correctedY > 0.05){
+        calculateDistance(correctedY,1);
+    }
+    if((correctedZ - 1) > 0.05){
+        calculateDistance((correctedZ - 1),2);
+    }
+    if(correctedX < -0.05){
+        calculateDistance((correctedZ - 1),0);
+    }
+    if(correctedY < -0.05){
+        calculateDistance((correctedY*-1),1);
+    }
+    if((correctedZ - 1) <  -0.05){
+        calculateDistance(((correctedZ - 1)*-1),2);
+    }
+
 
     //printf("x: %.2f - Y: %.2f - Z: %.2f \n", correctedX, correctedY, correctedz);
 
     sleepForMs(100);
 }
 
-double returnDistance(void){
+double totalDistance(void){
     return distance;
 }
 
 void resetDistance(void){
+    velocityx = 0;
+    velocityy = 0;
+    velocityz = 0;
     distance = 0;
-}
-void resetTimePassed(void){
     timePassed = 0;
-}
-
-double returnTimePassed(void){
-    return timePassed;
 }

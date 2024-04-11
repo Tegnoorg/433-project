@@ -124,8 +124,6 @@ function getMotionSensorReading() {
 			updateDB(newReading);
 			console.log('update db');
 		}
-		// var reply = message.toString('utf8')
-		// socket.emit('commandReply', reply);
 
 		client.close();
 
