@@ -4,5 +4,6 @@
 app/CMakeFiles/light_sampler.dir/src/main.c.o
  /home/lew/cmpt433/work/433-project/app/src/main.c
  /home/lew/cmpt433/work/433-project/hal/include/icm20948.h
+ /home/lew/cmpt433/work/433-project/hal/include/motionSensor.h
 app/CMakeFiles/light_sampler.dir/src/network.c.o
  /home/lew/cmpt433/work/433-project/app/src/network.c

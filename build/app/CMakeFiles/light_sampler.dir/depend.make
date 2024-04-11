@@ -3,6 +3,7 @@
 
 app/CMakeFiles/light_sampler.dir/src/main.c.o: ../app/src/main.c
 app/CMakeFiles/light_sampler.dir/src/main.c.o: ../hal/include/icm20948.h
+app/CMakeFiles/light_sampler.dir/src/main.c.o: ../hal/include/motionSensor.h
 
 app/CMakeFiles/light_sampler.dir/src/network.c.o: ../app/src/network.c
 
