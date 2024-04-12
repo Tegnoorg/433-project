@@ -1,0 +1,1 @@
+/usr/bin/arm-linux-gnueabihf-gcc -g CMakeFiles/availability.dir/src/main.c.o CMakeFiles/availability.dir/src/network.c.o -o availability  ../hal/libhal.a -lpthread -lm 

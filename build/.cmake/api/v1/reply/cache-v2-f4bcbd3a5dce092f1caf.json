@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/daniel/cmpt433/work/433-project/build"
+			"value" : "/home/lew/cmpt433/work/433-project/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -463,7 +463,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/daniel/cmpt433/work/433-project"
+			"value" : "/home/lew/cmpt433/work/433-project"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1059,7 +1059,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/daniel/cmpt433/work/433-project/build"
+			"value" : "/home/lew/cmpt433/work/433-project/build"
 		},
 		{
 			"name" : "my_hello_world_SOURCE_DIR",
@@ -1071,7 +1071,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/daniel/cmpt433/work/433-project"
+			"value" : "/home/lew/cmpt433/work/433-project"
 		}
 	],
 	"kind" : "cache",

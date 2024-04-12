@@ -111,11 +111,11 @@
 			[
 				{
 					"backtrace" : 6,
-					"path" : "/home/daniel/cmpt433/work/433-project/hal/hal/include"
+					"path" : "/home/lew/cmpt433/work/433-project/hal/hal/include"
 				},
 				{
 					"backtrace" : 7,
-					"path" : "/home/daniel/cmpt433/work/433-project/hal/include"
+					"path" : "/home/lew/cmpt433/work/433-project/hal/include"
 				}
 			],
 			"language" : "C",

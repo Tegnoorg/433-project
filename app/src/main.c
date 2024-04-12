@@ -12,10 +12,7 @@ int main(void)
 {
 
     if(BEAGLE_ID == 1){
-        // ICM20948_init();
         Network_init();
-        // Network_cleanup();
-        // ICM20948_cleanup();
         printf("beaglebone id %d is now on \n", BEAGLE_ID);
         while(1){
             if(Joystick_getDirectionPressed() == JOYSTICK_DOWN ){
@@ -37,7 +34,6 @@ int main(void)
                         
                         break;
                     }
-                    // getDistance();
                 }
             }
 
@@ -56,7 +52,6 @@ int main(void)
                         
                         break;
                     }
-                    // getDistance();
                 }
             }
 

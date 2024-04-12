@@ -86,27 +86,10 @@ $(document).ready(function() {
 			beatboxErr = true;
 		}
 	});
-
-	// setInterval(serverStatus, 1000);
 });
 
 function sendCommandViaUDP(message) {
 	socket.emit('daUdpCommand', message);
 };
 
-function serverStatus() {
-	fetch('http://192.168.7.2:8088/')
-		.then(response => {
-			if (!response.ok) {
-				throw new Error('Server is not responding');
-				
-			} else if(!beatboxErr){
-				$('#error-box').hide()
-			}
-		})
-		.catch(error => {
-			$('#error-box').show()
-			$('#error-text').text("No response from the Node.js server")
-		});
-}
 

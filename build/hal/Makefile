@@ -67,10 +67,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/daniel/cmpt433/work/433-project
+CMAKE_SOURCE_DIR = /home/lew/cmpt433/work/433-project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/daniel/cmpt433/work/433-project/build
+CMAKE_BINARY_DIR = /home/lew/cmpt433/work/433-project/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,14 +99,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/daniel/cmpt433/work/433-project/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/daniel/cmpt433/work/433-project/build/CMakeFiles /home/daniel/cmpt433/work/433-project/build/hal//CMakeFiles/progress.marks
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hal/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/daniel/cmpt433/work/433-project/build/CMakeFiles 0
+	cd /home/lew/cmpt433/work/433-project/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/lew/cmpt433/work/433-project/build/CMakeFiles /home/lew/cmpt433/work/433-project/build/hal//CMakeFiles/progress.marks
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hal/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lew/cmpt433/work/433-project/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hal/clean
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hal/clean
 .PHONY : clean
 
 # The main clean target
@@ -116,22 +116,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hal/preinstall
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hal/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hal/preinstall
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hal/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/daniel/cmpt433/work/433-project/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/lew/cmpt433/work/433-project/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 hal/CMakeFiles/hal.dir/rule:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hal/CMakeFiles/hal.dir/rule
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hal/CMakeFiles/hal.dir/rule
 .PHONY : hal/CMakeFiles/hal.dir/rule
 
 # Convenience name for target.
@@ -141,7 +141,7 @@ hal: hal/CMakeFiles/hal.dir/rule
 
 # fast build rule for target.
 hal/fast:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/build
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/build
 .PHONY : hal/fast
 
 src/forceSensor.o: src/forceSensor.c.o
@@ -150,7 +150,7 @@ src/forceSensor.o: src/forceSensor.c.o
 
 # target to build an object file
 src/forceSensor.c.o:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/forceSensor.c.o
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/forceSensor.c.o
 .PHONY : src/forceSensor.c.o
 
 src/forceSensor.i: src/forceSensor.c.i
@@ -159,7 +159,7 @@ src/forceSensor.i: src/forceSensor.c.i
 
 # target to preprocess a source file
 src/forceSensor.c.i:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/forceSensor.c.i
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/forceSensor.c.i
 .PHONY : src/forceSensor.c.i
 
 src/forceSensor.s: src/forceSensor.c.s
@@ -168,7 +168,7 @@ src/forceSensor.s: src/forceSensor.c.s
 
 # target to generate assembly for a file
 src/forceSensor.c.s:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/forceSensor.c.s
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/forceSensor.c.s
 .PHONY : src/forceSensor.c.s
 
 src/hardwareCommands.o: src/hardwareCommands.c.o
@@ -177,7 +177,7 @@ src/hardwareCommands.o: src/hardwareCommands.c.o
 
 # target to build an object file
 src/hardwareCommands.c.o:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/hardwareCommands.c.o
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/hardwareCommands.c.o
 .PHONY : src/hardwareCommands.c.o
 
 src/hardwareCommands.i: src/hardwareCommands.c.i
@@ -186,7 +186,7 @@ src/hardwareCommands.i: src/hardwareCommands.c.i
 
 # target to preprocess a source file
 src/hardwareCommands.c.i:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/hardwareCommands.c.i
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/hardwareCommands.c.i
 .PHONY : src/hardwareCommands.c.i
 
 src/hardwareCommands.s: src/hardwareCommands.c.s
@@ -195,7 +195,7 @@ src/hardwareCommands.s: src/hardwareCommands.c.s
 
 # target to generate assembly for a file
 src/hardwareCommands.c.s:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/hardwareCommands.c.s
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/hardwareCommands.c.s
 .PHONY : src/hardwareCommands.c.s
 
 src/icm20948.o: src/icm20948.c.o
@@ -204,7 +204,7 @@ src/icm20948.o: src/icm20948.c.o
 
 # target to build an object file
 src/icm20948.c.o:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/icm20948.c.o
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/icm20948.c.o
 .PHONY : src/icm20948.c.o
 
 src/icm20948.i: src/icm20948.c.i
@@ -213,7 +213,7 @@ src/icm20948.i: src/icm20948.c.i
 
 # target to preprocess a source file
 src/icm20948.c.i:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/icm20948.c.i
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/icm20948.c.i
 .PHONY : src/icm20948.c.i
 
 src/icm20948.s: src/icm20948.c.s
@@ -222,7 +222,7 @@ src/icm20948.s: src/icm20948.c.s
 
 # target to generate assembly for a file
 src/icm20948.c.s:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/icm20948.c.s
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/icm20948.c.s
 .PHONY : src/icm20948.c.s
 
 src/joystick.o: src/joystick.c.o
@@ -231,7 +231,7 @@ src/joystick.o: src/joystick.c.o
 
 # target to build an object file
 src/joystick.c.o:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/joystick.c.o
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/joystick.c.o
 .PHONY : src/joystick.c.o
 
 src/joystick.i: src/joystick.c.i
@@ -240,7 +240,7 @@ src/joystick.i: src/joystick.c.i
 
 # target to preprocess a source file
 src/joystick.c.i:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/joystick.c.i
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/joystick.c.i
 .PHONY : src/joystick.c.i
 
 src/joystick.s: src/joystick.c.s
@@ -249,7 +249,7 @@ src/joystick.s: src/joystick.c.s
 
 # target to generate assembly for a file
 src/joystick.c.s:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/joystick.c.s
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/joystick.c.s
 .PHONY : src/joystick.c.s
 
 src/lightSensor.o: src/lightSensor.c.o
@@ -258,7 +258,7 @@ src/lightSensor.o: src/lightSensor.c.o
 
 # target to build an object file
 src/lightSensor.c.o:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/lightSensor.c.o
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/lightSensor.c.o
 .PHONY : src/lightSensor.c.o
 
 src/lightSensor.i: src/lightSensor.c.i
@@ -267,7 +267,7 @@ src/lightSensor.i: src/lightSensor.c.i
 
 # target to preprocess a source file
 src/lightSensor.c.i:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/lightSensor.c.i
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/lightSensor.c.i
 .PHONY : src/lightSensor.c.i
 
 src/lightSensor.s: src/lightSensor.c.s
@@ -276,7 +276,7 @@ src/lightSensor.s: src/lightSensor.c.s
 
 # target to generate assembly for a file
 src/lightSensor.c.s:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/lightSensor.c.s
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/lightSensor.c.s
 .PHONY : src/lightSensor.c.s
 
 src/motionSensor.o: src/motionSensor.c.o
@@ -285,7 +285,7 @@ src/motionSensor.o: src/motionSensor.c.o
 
 # target to build an object file
 src/motionSensor.c.o:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/motionSensor.c.o
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/motionSensor.c.o
 .PHONY : src/motionSensor.c.o
 
 src/motionSensor.i: src/motionSensor.c.i
@@ -294,7 +294,7 @@ src/motionSensor.i: src/motionSensor.c.i
 
 # target to preprocess a source file
 src/motionSensor.c.i:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/motionSensor.c.i
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/motionSensor.c.i
 .PHONY : src/motionSensor.c.i
 
 src/motionSensor.s: src/motionSensor.c.s
@@ -303,7 +303,7 @@ src/motionSensor.s: src/motionSensor.c.s
 
 # target to generate assembly for a file
 src/motionSensor.c.s:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/motionSensor.c.s
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/motionSensor.c.s
 .PHONY : src/motionSensor.c.s
 
 # Help Target
@@ -344,6 +344,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/daniel/cmpt433/work/433-project/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/lew/cmpt433/work/433-project/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/daniel/cmpt433/work/433-project/app/src/main.c" "/home/daniel/cmpt433/work/433-project/build/app/CMakeFiles/light_sampler.dir/src/main.c.o"
-  "/home/daniel/cmpt433/work/433-project/app/src/network.c" "/home/daniel/cmpt433/work/433-project/build/app/CMakeFiles/light_sampler.dir/src/network.c.o"
+  "/home/lew/cmpt433/work/433-project/app/src/main.c" "/home/lew/cmpt433/work/433-project/build/app/CMakeFiles/availability.dir/src/main.c.o"
+  "/home/lew/cmpt433/work/433-project/app/src/network.c" "/home/lew/cmpt433/work/433-project/build/app/CMakeFiles/availability.dir/src/network.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
@@ -17,7 +17,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/daniel/cmpt433/work/433-project/build/hal/CMakeFiles/hal.dir/DependInfo.cmake"
+  "/home/lew/cmpt433/work/433-project/build/hal/CMakeFiles/hal.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

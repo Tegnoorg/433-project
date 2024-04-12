@@ -67,10 +67,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/daniel/cmpt433/work/433-project
+CMAKE_SOURCE_DIR = /home/lew/cmpt433/work/433-project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/daniel/cmpt433/work/433-project/build
+CMAKE_BINARY_DIR = /home/lew/cmpt433/work/433-project/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,9 +99,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/daniel/cmpt433/work/433-project/build/CMakeFiles /home/daniel/cmpt433/work/433-project/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lew/cmpt433/work/433-project/build/CMakeFiles /home/lew/cmpt433/work/433-project/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/daniel/cmpt433/work/433-project/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lew/cmpt433/work/433-project/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -143,17 +143,17 @@ hal/fast:
 .PHONY : hal/fast
 
 #=============================================================================
-# Target rules for targets named light_sampler
+# Target rules for targets named availability
 
 # Build rule for target.
-light_sampler: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 light_sampler
-.PHONY : light_sampler
+availability: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 availability
+.PHONY : availability
 
 # fast build rule for target.
-light_sampler/fast:
-	$(MAKE) $(MAKESILENT) -f app/CMakeFiles/light_sampler.dir/build.make app/CMakeFiles/light_sampler.dir/build
-.PHONY : light_sampler/fast
+availability/fast:
+	$(MAKE) $(MAKESILENT) -f app/CMakeFiles/availability.dir/build.make app/CMakeFiles/availability.dir/build
+.PHONY : availability/fast
 
 # Help Target
 help:
@@ -163,8 +163,8 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... availability"
 	@echo "... hal"
-	@echo "... light_sampler"
 .PHONY : help
 
 

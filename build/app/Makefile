@@ -67,10 +67,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/daniel/cmpt433/work/433-project
+CMAKE_SOURCE_DIR = /home/lew/cmpt433/work/433-project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/daniel/cmpt433/work/433-project/build
+CMAKE_BINARY_DIR = /home/lew/cmpt433/work/433-project/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,14 +99,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/daniel/cmpt433/work/433-project/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/daniel/cmpt433/work/433-project/build/CMakeFiles /home/daniel/cmpt433/work/433-project/build/app//CMakeFiles/progress.marks
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/daniel/cmpt433/work/433-project/build/CMakeFiles 0
+	cd /home/lew/cmpt433/work/433-project/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/lew/cmpt433/work/433-project/build/CMakeFiles /home/lew/cmpt433/work/433-project/build/app//CMakeFiles/progress.marks
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lew/cmpt433/work/433-project/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/clean
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/clean
 .PHONY : clean
 
 # The main clean target
@@ -116,33 +116,33 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/preinstall
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/preinstall
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/daniel/cmpt433/work/433-project/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/lew/cmpt433/work/433-project/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
-app/CMakeFiles/light_sampler.dir/rule:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/CMakeFiles/light_sampler.dir/rule
-.PHONY : app/CMakeFiles/light_sampler.dir/rule
+app/CMakeFiles/availability.dir/rule:
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/CMakeFiles/availability.dir/rule
+.PHONY : app/CMakeFiles/availability.dir/rule
 
 # Convenience name for target.
-light_sampler: app/CMakeFiles/light_sampler.dir/rule
+availability: app/CMakeFiles/availability.dir/rule
 
-.PHONY : light_sampler
+.PHONY : availability
 
 # fast build rule for target.
-light_sampler/fast:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/light_sampler.dir/build.make app/CMakeFiles/light_sampler.dir/build
-.PHONY : light_sampler/fast
+availability/fast:
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/availability.dir/build.make app/CMakeFiles/availability.dir/build
+.PHONY : availability/fast
 
 src/main.o: src/main.c.o
 
@@ -150,7 +150,7 @@ src/main.o: src/main.c.o
 
 # target to build an object file
 src/main.c.o:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/light_sampler.dir/build.make app/CMakeFiles/light_sampler.dir/src/main.c.o
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/availability.dir/build.make app/CMakeFiles/availability.dir/src/main.c.o
 .PHONY : src/main.c.o
 
 src/main.i: src/main.c.i
@@ -159,7 +159,7 @@ src/main.i: src/main.c.i
 
 # target to preprocess a source file
 src/main.c.i:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/light_sampler.dir/build.make app/CMakeFiles/light_sampler.dir/src/main.c.i
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/availability.dir/build.make app/CMakeFiles/availability.dir/src/main.c.i
 .PHONY : src/main.c.i
 
 src/main.s: src/main.c.s
@@ -168,7 +168,7 @@ src/main.s: src/main.c.s
 
 # target to generate assembly for a file
 src/main.c.s:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/light_sampler.dir/build.make app/CMakeFiles/light_sampler.dir/src/main.c.s
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/availability.dir/build.make app/CMakeFiles/availability.dir/src/main.c.s
 .PHONY : src/main.c.s
 
 src/network.o: src/network.c.o
@@ -177,7 +177,7 @@ src/network.o: src/network.c.o
 
 # target to build an object file
 src/network.c.o:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/light_sampler.dir/build.make app/CMakeFiles/light_sampler.dir/src/network.c.o
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/availability.dir/build.make app/CMakeFiles/availability.dir/src/network.c.o
 .PHONY : src/network.c.o
 
 src/network.i: src/network.c.i
@@ -186,7 +186,7 @@ src/network.i: src/network.c.i
 
 # target to preprocess a source file
 src/network.c.i:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/light_sampler.dir/build.make app/CMakeFiles/light_sampler.dir/src/network.c.i
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/availability.dir/build.make app/CMakeFiles/availability.dir/src/network.c.i
 .PHONY : src/network.c.i
 
 src/network.s: src/network.c.s
@@ -195,7 +195,7 @@ src/network.s: src/network.c.s
 
 # target to generate assembly for a file
 src/network.c.s:
-	cd /home/daniel/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/light_sampler.dir/build.make app/CMakeFiles/light_sampler.dir/src/network.c.s
+	cd /home/lew/cmpt433/work/433-project/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/availability.dir/build.make app/CMakeFiles/availability.dir/src/network.c.s
 .PHONY : src/network.c.s
 
 # Help Target
@@ -206,7 +206,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... light_sampler"
+	@echo "... availability"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
@@ -224,6 +224,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/daniel/cmpt433/work/433-project/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/lew/cmpt433/work/433-project/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

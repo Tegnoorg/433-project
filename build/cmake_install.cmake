@@ -1,4 +1,4 @@
-# Install script for directory: /home/daniel/cmpt433/work/433-project
+# Install script for directory: /home/lew/cmpt433/work/433-project
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,12 +44,12 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/daniel/cmpt433/work/433-project/build/hal/cmake_install.cmake")
+  include("/home/lew/cmpt433/work/433-project/build/hal/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/daniel/cmpt433/work/433-project/build/app/cmake_install.cmake")
+  include("/home/lew/cmpt433/work/433-project/build/app/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -60,5 +60,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/daniel/cmpt433/work/433-project/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/lew/cmpt433/work/433-project/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

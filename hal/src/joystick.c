@@ -1,10 +1,8 @@
 #include "joystick.h"
-// #include "hal/beatPattern.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <pthread.h>
-// #include "../../app/include/shutdown.h"
 
 static void runCommand(char* command);
 static void writeToFile(char* filePath, char* str);
@@ -22,7 +20,6 @@ void Joystick_init(void)
     runCommand("config-pin p8.16 gpio");
     runCommand("config-pin p8.18 gpio");
     runCommand("config-pin p8.17 gpio");
-
 
     // config joystick pins for input
     writeToFile("/sys/class/gpio/gpio26/direction", "in");
@@ -65,17 +62,11 @@ static void* joystickThreadFn(void* args)
     while (!stopping) {
         JoystickDirection joystickDirection = Joystick_getDirectionPressed();
         if (joystickDirection == JOYSTICK_IN) {
-            //cycleBeat();
         } else if (joystickDirection == JOYSTICK_DOWN) {
-            //decreaseVolume();
         } else if (joystickDirection == JOYSTICK_LEFT) {
-            //decreaseTempo();
         } else if (joystickDirection == JOYSTICK_RIGHT) {
-            //increaseTempo();
         } else if (joystickDirection == JOYSTICK_UP) {
-            //increaseVolume();
         }
-        //sleepForMs(10);
     }
     return NULL;
 }

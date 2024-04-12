@@ -1,4 +1,4 @@
-# Install script for directory: /home/daniel/cmpt433/work/433-project/hal
+# Install script for directory: /home/lew/cmpt433/work/433-project/hal
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -4,7 +4,7 @@
 # compile C with /usr/bin/arm-linux-gnueabihf-gcc
 C_DEFINES = 
 
-C_INCLUDES = -I/home/daniel/cmpt433/work/433-project/hal/hal/include -I/home/daniel/cmpt433/work/433-project/hal/include
+C_INCLUDES = -I/home/lew/cmpt433/work/433-project/hal/hal/include -I/home/lew/cmpt433/work/433-project/hal/include
 
 C_FLAGS = -g -pthread -g -Wall -Werror -Wpedantic -Wextra -fdiagnostics-color -std=gnu11
 

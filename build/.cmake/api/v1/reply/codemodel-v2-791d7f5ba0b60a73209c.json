@@ -29,7 +29,7 @@
 					"source" : "hal",
 					"targetIndexes" : 
 					[
-						0
+						1
 					]
 				},
 				{
@@ -43,7 +43,7 @@
 					"source" : "app",
 					"targetIndexes" : 
 					[
-						1
+						0
 					]
 				}
 			],
@@ -68,17 +68,17 @@
 			"targets" : 
 			[
 				{
-					"directoryIndex" : 1,
-					"id" : "hal::@ad971efe0e95b39e260f",
-					"jsonFile" : "target-hal-Debug-51a11e266559fab8051d.json",
-					"name" : "hal",
+					"directoryIndex" : 2,
+					"id" : "availability::@5f5a17c01335469806cb",
+					"jsonFile" : "target-availability-Debug-71b9e763357982283eda.json",
+					"name" : "availability",
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 2,
-					"id" : "light_sampler::@5f5a17c01335469806cb",
-					"jsonFile" : "target-light_sampler-Debug-2bf9b28facf7c2faa5d7.json",
-					"name" : "light_sampler",
+					"directoryIndex" : 1,
+					"id" : "hal::@ad971efe0e95b39e260f",
+					"jsonFile" : "target-hal-Debug-6cc15f6482033211151d.json",
+					"name" : "hal",
 					"projectIndex" : 0
 				}
 			]
@@ -87,8 +87,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/daniel/cmpt433/work/433-project/build",
-		"source" : "/home/daniel/cmpt433/work/433-project"
+		"build" : "/home/lew/cmpt433/work/433-project/build",
+		"source" : "/home/lew/cmpt433/work/433-project"
 	},
 	"version" : 
 	{

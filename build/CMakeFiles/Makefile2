@@ -63,10 +63,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/daniel/cmpt433/work/433-project
+CMAKE_SOURCE_DIR = /home/lew/cmpt433/work/433-project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/daniel/cmpt433/work/433-project/build
+CMAKE_BINARY_DIR = /home/lew/cmpt433/work/433-project/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -93,7 +93,7 @@ clean: app/clean
 # Directory level rules for directory app
 
 # Recursive "all" directory target.
-app/all: app/CMakeFiles/light_sampler.dir/all
+app/all: app/CMakeFiles/availability.dir/all
 
 .PHONY : app/all
 
@@ -103,7 +103,7 @@ app/preinstall:
 .PHONY : app/preinstall
 
 # Recursive "clean" directory target.
-app/clean: app/CMakeFiles/light_sampler.dir/clean
+app/clean: app/CMakeFiles/availability.dir/clean
 
 .PHONY : app/clean
 
@@ -132,14 +132,14 @@ hal/clean: hal/CMakeFiles/hal.dir/clean
 hal/CMakeFiles/hal.dir/all:
 	$(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/depend
 	$(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/daniel/cmpt433/work/433-project/build/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target hal"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lew/cmpt433/work/433-project/build/CMakeFiles --progress-num=4,5,6,7,8,9,10 "Built target hal"
 .PHONY : hal/CMakeFiles/hal.dir/all
 
 # Build rule for subdir invocation for target.
 hal/CMakeFiles/hal.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/daniel/cmpt433/work/433-project/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lew/cmpt433/work/433-project/build/CMakeFiles 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hal/CMakeFiles/hal.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/daniel/cmpt433/work/433-project/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lew/cmpt433/work/433-project/build/CMakeFiles 0
 .PHONY : hal/CMakeFiles/hal.dir/rule
 
 # Convenience name for target.
@@ -153,31 +153,31 @@ hal/CMakeFiles/hal.dir/clean:
 .PHONY : hal/CMakeFiles/hal.dir/clean
 
 #=============================================================================
-# Target rules for target app/CMakeFiles/light_sampler.dir
+# Target rules for target app/CMakeFiles/availability.dir
 
 # All Build rule for target.
-app/CMakeFiles/light_sampler.dir/all: hal/CMakeFiles/hal.dir/all
-	$(MAKE) $(MAKESILENT) -f app/CMakeFiles/light_sampler.dir/build.make app/CMakeFiles/light_sampler.dir/depend
-	$(MAKE) $(MAKESILENT) -f app/CMakeFiles/light_sampler.dir/build.make app/CMakeFiles/light_sampler.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/daniel/cmpt433/work/433-project/build/CMakeFiles --progress-num=8,9,10 "Built target light_sampler"
-.PHONY : app/CMakeFiles/light_sampler.dir/all
+app/CMakeFiles/availability.dir/all: hal/CMakeFiles/hal.dir/all
+	$(MAKE) $(MAKESILENT) -f app/CMakeFiles/availability.dir/build.make app/CMakeFiles/availability.dir/depend
+	$(MAKE) $(MAKESILENT) -f app/CMakeFiles/availability.dir/build.make app/CMakeFiles/availability.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lew/cmpt433/work/433-project/build/CMakeFiles --progress-num=1,2,3 "Built target availability"
+.PHONY : app/CMakeFiles/availability.dir/all
 
 # Build rule for subdir invocation for target.
-app/CMakeFiles/light_sampler.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/daniel/cmpt433/work/433-project/build/CMakeFiles 10
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/CMakeFiles/light_sampler.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/daniel/cmpt433/work/433-project/build/CMakeFiles 0
-.PHONY : app/CMakeFiles/light_sampler.dir/rule
+app/CMakeFiles/availability.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lew/cmpt433/work/433-project/build/CMakeFiles 10
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/CMakeFiles/availability.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lew/cmpt433/work/433-project/build/CMakeFiles 0
+.PHONY : app/CMakeFiles/availability.dir/rule
 
 # Convenience name for target.
-light_sampler: app/CMakeFiles/light_sampler.dir/rule
+availability: app/CMakeFiles/availability.dir/rule
 
-.PHONY : light_sampler
+.PHONY : availability
 
 # clean rule for target.
-app/CMakeFiles/light_sampler.dir/clean:
-	$(MAKE) $(MAKESILENT) -f app/CMakeFiles/light_sampler.dir/build.make app/CMakeFiles/light_sampler.dir/clean
-.PHONY : app/CMakeFiles/light_sampler.dir/clean
+app/CMakeFiles/availability.dir/clean:
+	$(MAKE) $(MAKESILENT) -f app/CMakeFiles/availability.dir/build.make app/CMakeFiles/availability.dir/clean
+.PHONY : app/CMakeFiles/availability.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

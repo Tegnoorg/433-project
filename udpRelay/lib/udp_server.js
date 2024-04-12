@@ -21,13 +21,9 @@ exports.listen = function(server) {
 	io.set('log level 1');
 
 	io.sockets.on('connection', function(socket) {
-		// setInterval(updateVolume, 1000, socket);
-		// setInterval(updateTempo, 1000, socket);
 		setInterval(getDistance2, 2000);
 		setInterval(getDistance3, 2000);
 		setInterval(updateMotionReading, 2000, socket);
-		// setInterval(updateStatus, 1000, socket);
-		// handleCommand(socket);
 	});
 
 };
@@ -36,66 +32,6 @@ exports.listen = function(server) {
 var PORT = 12345;
 var HOST = '192.168.7.2';
 
-// function handleCommand(socket) {
-
-// 	// Pased string of comamnd to relay
-// 	socket.on('daUdpCommand', function(data) {
-// 		console.log('daUdpCommand command: ' + data);
-
-// 		var buffer = new Buffer(data);
-
-// 		var client = dgram.createSocket('udp4');
-// 		client.send(buffer, 0, buffer.length, PORT, HOST, function(err, bytes) {
-// 			if (err) 
-// 				throw err;
-// 			console.log('UDP message sent to ' + HOST +':'+ PORT);
-// 		});
-
-// 		client.on('listening', function () {
-// 			var address = client.address();
-// 			console.log('UDP Client: listening on ' + address.address + ":" + address.port);
-// 		});
-// 		// Handle an incoming message over the UDP from the local application.
-// 		client.on('message', function (message, remote) {
-// 			console.log("UDP Client: message Rx" + remote.address + ':' + remote.port +' - ' + message);
-
-// 			var reply = message.toString('utf8')
-// 			socket.emit('commandReply', reply);
-
-// 			client.close();
-
-// 		});
-// 		client.on("UDP Client: close", function() {
-// 			console.log("closed");
-// 		});
-// 		client.on("UDP Client: error", function(err) {
-// 			console.log("error: ",err);
-// 		});
-// 	});
-// };
-// function updateVolume(socket) {
-// 	var client = dgram.createSocket('udp4');
-// 	var buffer = "volume";
-// 	client.send(buffer, 0, buffer.length, PORT, HOST, function(err, bytes) {
-// 		if (err) 
-// 			throw err;
-// 		// console.log('UDP message sent to ' + HOST +':'+ PORT);
-// 	});
-
-// 	client.on('listening', function () {
-// 		var address = client.address();
-// 		// console.log('UDP Client: listening on ' + address.address + ":" + address.port);
-// 	});
-// 	client.on('message', function (message, remote) {
-// 		// console.log("UDP Client: message Rx" + remote.address + ':' + remote.port +' - ' + message);
-
-// 		var reply = message.toString('utf8')
-// 		socket.emit('commandReply', reply);
-
-// 		client.close();
-
-// 	});
-// }
 var lastDistance2 = '-1'
 function getDistance2() {
 	var client = dgram.createSocket('udp4');
@@ -156,102 +92,22 @@ function getDistance3() {
 
 function updateMotionReading(socket) {
 	var client = dgram.createSocket('udp4');
-	// var buffer = "tempo";
-	// client.send(buffer, 0, buffer.length, PORT, HOST, function(err, bytes) {
-	// 	if (err) 
-	// 		throw err;
-	// 	// console.log('UDP message sent to ' + HOST +':'+ PORT);
-	// });
 
 	client.on('listening', function () {
 		var address = client.address();
-		// console.log('UDP Client: listening on ' + address.address + ":" + address.port);
 	});
-	// console.log("hioahdfioashdfaoishdoaishdfoaisdhfaosidhfasoifhasoidhf");
 	getDB(socket);
-	// console.log(`dasjkflsdfklasdjkfklsdjflaksdjflsakdjflaksjdfalskdfjalk: ${motionDetected}`);
-	// var reply = "motion2 ";
-	// if (motionDetected == '1') {
-	// 	reply += 'Yes'
-	// } else {
-	// 	reply += 'No'
-	// }
-	// // var reply = message.toString('utf8')
-	// socket.emit('commandReply', reply);
 	client.on('message', function (message, remote) {
-		// console.log("UDP Client: message Rx" + remote.address + ':' + remote.port +' - ' + message);
-
 		client.close();
-
 	});
 }
 
-// function updateMode(socket) {
-// 	var client = dgram.createSocket('udp4');
-// 	// var buffer = "curmode";
-// 	// client.send(buffer, 0, buffer.length, PORT, HOST, function(err, bytes) {
-// 	// 	if (err) 
-// 	// 		throw err;
-// 	// 	// console.log('UDP message sent to ' + HOST +':'+ PORT);
-// 	// });
-
-// 	client.on('listening', function () {
-// 		var address = client.address();
-// 		// console.log('UDP Client: listening on ' + address.address + ":" + address.port);
-// 	});
-// 	client.on('message', function (message, remote) {
-// 		// console.log("UDP Client: message Rx" + remote.address + ':' + remote.port +' - ' + message);
-
-// 		var reply = message.toString('utf8')
-// 		socket.emit('commandReply', reply);
-
-// 		client.close();
-
-// 	});
-// }
-
-// function updateStatus(socket) {
-// 	var client = dgram.createSocket('udp4');
-// 	var buffer = "uptime";
-// 	client.send(buffer, 0, buffer.length, PORT, HOST, function(err, bytes) {
-// 		if (err) 
-// 			throw err;
-// 		// console.log('UDP message sent to ' + HOST +':'+ PORT);
-// 	});
-
-// 	client.on('listening', function () {
-// 		var address = client.address();
-// 		// console.log('UDP Client: listening on ' + address.address + ":" + address.port);
-// 	});
-// 	var errorTimer = setTimeout(function() {
-// 		var reply = "error beatboxNotRunning".toString('utf8')
-// 		socket.emit("commandReply", reply)
-// 	}, 1000)
-// 	client.on('message', function (message, remote) {
-// 		clearTimeout(errorTimer);
-
-// 		// console.log("UDP Client: message Rx" + remote.address + ':' + remote.port +' - ' + message);
-
-// 		var reply = message.toString('utf8')
-// 		socket.emit('commandReply', reply);
-
-// 		client.close();
-
-// 	});
-// }
-
 async function getDB(socket){
 	try {
-        // Connect the client to the server
-        // await client.connect();
-        // console.log('Connected to MongoDB');
-
-        // Use the specified database
         const db = client.db(dbName);
         const collection = db.collection("availability");
         // update
         const documents = await collection.find({}).toArray();
-		// console.log(documents);
         var motionDetected = documents[0].isAvailable;
 		var reply = "motion2 ";
 		if (motionDetected == '1') {
@@ -305,59 +161,32 @@ async function getDB(socket){
     } catch (e) {
 		console.log(e);
 		socket.emit('commandReply', 'error');
-	} finally {
-        // Close the client
-        // await client.close();
-        // console.log('Disconnected from MongoDB');
-    }
+	}
 }
 
 async function updateDB(toSet){
 	try {
-        // Connect the client to the server
-        // await client.connect();
-        // console.log('Connected to MongoDB');
-
-        // Use the specified database
         const db = client.db(dbName);
         const collection = db.collection("availability");
         // update
-		// const documents = await collection.updateOne({beaglebone: 3}, {$set: {isAvailable: toSet}}); // teg
         const documents = await collection.updateOne({beaglebone: 3}, {$set: {distance: toSet}});
-        // const result = await db.collection('availability').insertOne({ name: 'John Doe', true: 30 });
         console.log(documents);
-        // Your query code here...
     } catch (e) {
 		console.log(e);
-	} finally {
-        // Close the client
-        // await client.close();
-        // console.log('Disconnected from MongoDB');
-    }
+	} 
 }
 
 async function updateDB2(toSet){
 	try {
-        // Connect the client to the server
-        // await client.connect();
-        // console.log('Connected to MongoDB');
 
-        // Use the specified database
         const db = client.db(dbName);
         const collection = db.collection("availability");
         // update
-		// const documents = await collection.updateOne({beaglebone: 3}, {$set: {lightOn: toSet}}); // teg
         const documents = await collection.updateOne({beaglebone: 2}, {$set: {distance: toSet}}); 
-        
         console.log(documents);
-        // Your query code here...
     } catch (e) {
 		console.log(e);
-	} finally {
-        // Close the client
-        // await client.close();
-        // console.log('Disconnected from MongoDB');
-    }
+	} 
 }
 
 async function connectToDB() {

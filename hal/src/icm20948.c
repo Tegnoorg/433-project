@@ -71,36 +71,29 @@ static double distance = 0;
 static double distance1 = 0;
 static int bid = 0;
 
-// static bool stopping = false;
 static int initI2cBus(char* bus, int address);
 static void writeI2cReg(int i2cFileDesc, unsigned char regAddr,
                         unsigned char value);
 static void* accelThreadFn(void* args);
-// static void* terminalThreadFn(void* args);
 static void readI2cReg(int i2cFileDesc, unsigned char regAddr);
 static bool stopping = false;
-// static unsigned char readI2cReg2(int i2cFileDesc, unsigned char regAddr);
-// void getDistance(void);
+
 
 void ICM20948_init(int id)
 {
     bid = id;
     stopping = false;
-    // Period_init();
     runCommand("config-pin P9_18 i2c");
     runCommand("config-pin P9_17 i2c");
-    // runCommand("i2cset -y 1 0x69 0x06 0x00");
     i2cFileDesc = initI2cBus(I2CDRV_LINUX_BUS1, I2C_DEVICE_ADDRESS);
     writeI2cReg(i2cFileDesc, 0x06, 0x01); // turn on CTRL_REG1
     pthread_create(&accelerometerThreadId, NULL, &accelThreadFn, NULL);
-    // pthread_create(&terminalThreadId, NULL, &terminalThreadFn, NULL);
 }
 
 void ICM20948_cleanup(void)
 {
     stopping = true;
     pthread_join(accelerometerThreadId, NULL);
-    // pthread_join(terminalThreadId, NULL);
 }
 
 static void* accelThreadFn(void* args)
@@ -108,19 +101,10 @@ static void* accelThreadFn(void* args)
     (void)args;
     while (!stopping) {
         writeI2cReg(i2cFileDesc, 0x06, 0x01);
-        // printf("AXMSB: %u, AXLSB: %u, AYMSB: %u, AYLSB: %u, AZMSB: %u, AZLSB: %u,"
-        //         "GXMSB: %u, GXLSB: %u, GYMSB: %u, GYLSB: %u, GZMSB: %u, GZLSB: %u \n", 
-        //         readI2cReg2(i2cFileDesc, AXMSB), readI2cReg2(i2cFileDesc, AXLSB), 
-        //         readI2cReg2(i2cFileDesc, AYMSB), readI2cReg2(i2cFileDesc, AYLSB),
-        //         readI2cReg2(i2cFileDesc, AZMSB), readI2cReg2(i2cFileDesc, AZLSB),
-        //         readI2cReg2(i2cFileDesc, GXMSB), readI2cReg2(i2cFileDesc, GXLSB),
-        //         readI2cReg2(i2cFileDesc, GYMSB), readI2cReg2(i2cFileDesc, GYLSB),
-        //         readI2cReg2(i2cFileDesc, GZMSB), readI2cReg2(i2cFileDesc, GZLSB));
+       
         readI2cReg(i2cFileDesc, 0xad);
         getDistance();
-        // printf("distance: %f, accel x: %f y: %f z:%f\n", totalDistance(), lastXValAcc, lastYValAcc, lastZValAcc);
-        // resetDistance();
-        // sleepForMs(100);
+        // sleepForMs is in getDistance
     }
     return NULL;
 }
@@ -179,27 +163,9 @@ static void readI2cReg(int i2cFileDesc, unsigned char regAddr)
     lastXValGyro = xg / 131.0;
     lastYValGyro = yg / 131.0;
     lastZValGyro = zg / 131.0;
-    //printf("%.2f %.2f %.2f ::: %.2f %.2f %.2f\n", lastXValAcc, lastYValAcc, lastZValAcc, lastXValGyro, lastYValGyro, lastZValGyro);
-    // sleepForMs(100);
 }
 
-// static unsigned char readI2cReg2(int i2cFileDesc, unsigned char regAddr)
-// {
-//     // To read a register, must first write the address
-//     int res = write(i2cFileDesc, &regAddr, sizeof(regAddr));
-//     if (res != sizeof(regAddr)) {
-//         perror("I2C: Unable to write to i2c register.");
-//         exit(1);
-//     }
-//     // Now read the value and return it
-//     char value = 0;
-//     res = read(i2cFileDesc, &value, sizeof(value));
-//     if (res != sizeof(value)) {
-//         perror("I2C: Unable to read from i2c register");
-//         exit(1);
-//     }
-//     return value;
-// }
+
 
 // v = a*t
 static double getVelocity(double acceleration, int n){
@@ -226,24 +192,16 @@ static void calculateDistance(double acceleration, int n, int id){
 //returns the distance every 100ms
 void getDistance(void){
     double correctedX = 0;
-    //int xChange = 0;
-    // int zChange = 0;
-    // int yChange = 0;
      double correctedY = 0;
-    // double correctedZ = 0;
     writeI2cReg(i2cFileDesc, 0x06, 0x01);
 
     if(fabs(lastXValGyro) > GYRO_THRESHOLD ){
         xgc += lastXValGyro*0.1;
-        //xChange = 1;
     }
     if(fabs(lastYValGyro) > GYRO_THRESHOLD){
         ygc += lastYValGyro*0.1;
     }
 
-    // ygc += lastYValGyro*0.1;
- 
-    // zgc += lastZValGyro*0.1;
     //takes x-accel value and subtracts - depending on how much it is tilted on the 
     //x gyro. shifts value from x-accel to z-acc so that the x accel becomes the new 
     //z accel and vice versa
@@ -259,22 +217,8 @@ void getDistance(void){
         calculateDistance(correctedY*GRAVITY*CALLIBRATION,1,bid);
         //printf("repeating Cor Y \n");
     }
-    
-    
-    
-    
-    //`correctedX = (lastXValAcc + sin(ygc*M_PI/180));
 
-    // // Check if any absolute acceleration exceeds the threshold
-    // if(correctedX > ACCELERATION_THRESHOLD){
-    //     calculateDistance(correctedX*9.8,0);
-    // }
-    // if(correctedY > ACCELERATION_THRESHOLD){ 
-    //     calculateDistance(correctedY*9.8,1);
-    //     //printf("repeating Cor Y \n");
-    // }
-
-    printf("GX: %.2f  GY: %.2f || CX: %.2f CY: %.2f || AX: %.2f AY: %.2f  || DISTANCE: %.2f m \n", xgc, ygc, correctedX, correctedY, lastXValAcc, lastYValAcc, distance);
+    // printf("GX: %.2f  GY: %.2f || CX: %.2f CY: %.2f || AX: %.2f AY: %.2f  || DISTANCE: %.2f m \n", xgc, ygc, correctedX, correctedY, lastXValAcc, lastYValAcc, distance);
 
     sleepForMs(100);
 }

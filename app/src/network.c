@@ -12,23 +12,18 @@
 #include <string.h>
 #include <netdb.h>
 #include <unistd.h>
-// #include "shutdown.h"
 #include "../../hal/include/lightSensor.h"
 #include "../../hal/include/forceSensor.h"
 #include "../../hal/include/motionSensor.h"
 #include "../../hal/include/icm20948.h"
 
 static pthread_t networkThreadId;
-static bool stopping = false;
-// char previousCommand[MAX_LEN] = ""; 
+static bool stopping = false; 
 
 static void* rx(void* args);
-// static void readFile(char* filePath, char* buff, unsigned int maxLength);
 
 static void sendResponse(struct sockaddr_in sinRemote, int socketDescriptor,
                         char* messageRx);
-// static void sendMessages(struct sockaddr_in sinRemote, int socketDescriptor,
-                        // int numMessages, char messages[numMessages][MAX_LEN]);
 
 void Network_init(void)
 {
@@ -78,10 +73,6 @@ static void* rx(void* args)
         // Extract the value from the message:
         // (process the message any way your app requires).
 
-        // if ((strncmp(messageRx, "\n", strnlen("\n", MAX_LEN)) == 0)) {
-        //     sendResponse(sinRemote, socketDescriptor, previousCommand);
-        // } else {
-        // }
         sendResponse(sinRemote, socketDescriptor, messageRx);
 
     }
@@ -99,84 +90,11 @@ static void sendResponse(struct sockaddr_in sinRemote, int socketDescriptor,
         // (NOTE: watch for buffer overflows!).
         char messageTx[MAX_LEN];
         
-        // change drum beat mode
-        // change volume & tempo
-        // play any one of the sounds your drum beats use
-        // shutting down program
 
         if (strncmp(messageRx, "stop", strnlen("stop", MAX_LEN)) == 0) {
-            // Shutdown_signalShutdown();
             snprintf(messageTx, MAX_LEN, "Program terminating.\n");
         } 
-        // else if ((strncmp(messageRx, "help", strnlen("help", MAX_LEN)) == 0) || 
-        //            (strncmp(messageRx, "?", strnlen("?", MAX_LEN)) == 0)) {
-        //     char* helpMessage = 
-        //         "Accepted command examples: \n"
-        //         "volumeUp     -- increase the volume by 5 (MAX: 100).\n"
-        //         "volumeDown   -- decrease the volume by 5 (MIN: 0).\n"
-        //         "tempoUp      -- increase the bpm by 5    (MAX: 300).\n"
-        //         "tempoDown    -- decrease the bpm by 5    (MIN: 40).\n"
-        //         "mode #       -- change beat mode to mode # (between 0 and 2).\n"
-        //         "play #       -- play drum sound # (between 1 and 3).\n"
-        //         "stop         -- cause the server program to end.\n";
-        //     snprintf(messageTx, MAX_LEN, helpMessage);
-        // } 
-        // else if ((strncmp(messageRx, "volumeUp", strnlen("volumeUp", MAX_LEN)) == 0)){
-        //     increaseVolume();
-        //     snprintf(messageTx, MAX_LEN, "volume %d\n", 
-        //             getVolume());
-        // } 
-        // else if (strncmp(messageRx, "volumeDown", strnlen("volumeDown", MAX_LEN)) == 0){
-        //     decreaseVolume();
-        //     snprintf(messageTx, MAX_LEN, "volume %d\n", 
-        //             getVolume());
-        // } else if (strncmp(messageRx, "volume", strnlen("volume", MAX_LEN)) == 0) {
-        //     snprintf(messageTx, MAX_LEN, "volume %d\n", 
-        //             getVolume());
-        // }
-        // else if (strncmp(messageRx, "tempoUp", strnlen("tempoUp", MAX_LEN)) == 0){
-        //     increaseTempo();
-        //     snprintf(messageTx, MAX_LEN, "tempo %d\n", 
-        //             getBPM());
-        // } 
-        // else if (strncmp(messageRx, "tempoDown", strnlen("tempoDown", MAX_LEN)) == 0){
-        //     decreaseTempo();
-        //     snprintf(messageTx, MAX_LEN, "tempo %d\n", 
-        //             getBPM());
-        // } 
-        // else if (strncmp(messageRx, "tempo", strnlen("tempo", MAX_LEN)) == 0){
-        //     snprintf(messageTx, MAX_LEN, "tempo %d\n", 
-        //             getBPM());
-        // } else if (strncmp(messageRx, "curmode", strnlen("curmode", MAX_LEN)) == 0) {
-        //     snprintf(messageTx, MAX_LEN, "mode %d\n", getBeatNum());
-        // }
-        // else if (strncmp(messageRx, "mode ", strnlen("mode ", MAX_LEN)) == 0){
-        //     int num = (messageRx[strnlen("mode ", MAX_LEN)]) - '0';
-        //     if (num >= 0 && num <= 2) {
-        //         snprintf(messageTx, MAX_LEN, "mode %d\n", 
-        //                 num);
-        //         changeBeatMode(num);
-        //     } else {
-        //         snprintf(messageTx, MAX_LEN, "Invalid beat mode\n");
-        //     }
-        // } else if (strncmp(messageRx, "play ", strnlen("play ", MAX_LEN)) == 0) {
-        //     int num = messageRx[strnlen("play ", MAX_LEN)] - '0';
-        //     // printf("%d", num);
-        //     // int num = atoi(c);
-        //     if (num >= 1 && num <= 3) {
-        //         snprintf(messageTx, MAX_LEN, "Playing drum sound #%d\n", 
-        //                 num);
-        //         playDrumSound(num);
-        //     } else {
-        //         snprintf(messageTx, MAX_LEN, "Invalid drum sound #\n");
-        //     }
-        // } else if (strncmp(messageRx, "uptime", strnlen("uptime", MAX_LEN)) == 0) {
-        //     char buff[MAX_LEN];
-        //     readFile("/proc/uptime", buff, MAX_LEN);
-        //     snprintf(messageTx, MAX_LEN*2, "uptime %s", buff);
-        // }
         else if (strncmp(messageRx, "motion", strnlen("motion", MAX_LEN)) == 0) {
-            // char buff[MAX_LEN];
             snprintf(messageTx, MAX_LEN, "%d", isMotionDetected());
         } else if (strncmp(messageRx, "force", strnlen("force", MAX_LEN)) == 0) {
             snprintf(messageTx, MAX_LEN, "%d", hasForce());
@@ -198,15 +116,3 @@ static void sendResponse(struct sockaddr_in sinRemote, int socketDescriptor,
                 0, 
                 (struct sockaddr*) &sinRemote, sin_len);
 }
-
-// static void readFile(char* filePath, char* buff, unsigned int maxLength)
-// {
-//     FILE *pFile = fopen(filePath, "r");
-//     if (pFile == NULL) {
-//         printf("ERROR: Unable to open file (%s) for read\n", filePath);
-//         exit(-1);
-//     }
-//     fgets(buff, maxLength, pFile);
-//     fclose(pFile);
-// }
-// typedef int make_iso_compilers_happy;

@@ -62,10 +62,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/daniel/cmpt433/work/433-project
+CMAKE_SOURCE_DIR = /home/lew/cmpt433/work/433-project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/daniel/cmpt433/work/433-project/build
+CMAKE_BINARY_DIR = /home/lew/cmpt433/work/433-project/build
 
 # Include any dependencies generated for this target.
 include hal/CMakeFiles/hal.dir/depend.make
@@ -78,81 +78,81 @@ include hal/CMakeFiles/hal.dir/flags.make
 
 hal/CMakeFiles/hal.dir/src/forceSensor.c.o: hal/CMakeFiles/hal.dir/flags.make
 hal/CMakeFiles/hal.dir/src/forceSensor.c.o: ../hal/src/forceSensor.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/cmpt433/work/433-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object hal/CMakeFiles/hal.dir/src/forceSensor.c.o"
-	cd /home/daniel/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hal.dir/src/forceSensor.c.o -c /home/daniel/cmpt433/work/433-project/hal/src/forceSensor.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lew/cmpt433/work/433-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object hal/CMakeFiles/hal.dir/src/forceSensor.c.o"
+	cd /home/lew/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hal.dir/src/forceSensor.c.o -c /home/lew/cmpt433/work/433-project/hal/src/forceSensor.c
 
 hal/CMakeFiles/hal.dir/src/forceSensor.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/hal.dir/src/forceSensor.c.i"
-	cd /home/daniel/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/daniel/cmpt433/work/433-project/hal/src/forceSensor.c > CMakeFiles/hal.dir/src/forceSensor.c.i
+	cd /home/lew/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/lew/cmpt433/work/433-project/hal/src/forceSensor.c > CMakeFiles/hal.dir/src/forceSensor.c.i
 
 hal/CMakeFiles/hal.dir/src/forceSensor.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/hal.dir/src/forceSensor.c.s"
-	cd /home/daniel/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/daniel/cmpt433/work/433-project/hal/src/forceSensor.c -o CMakeFiles/hal.dir/src/forceSensor.c.s
+	cd /home/lew/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/lew/cmpt433/work/433-project/hal/src/forceSensor.c -o CMakeFiles/hal.dir/src/forceSensor.c.s
 
 hal/CMakeFiles/hal.dir/src/hardwareCommands.c.o: hal/CMakeFiles/hal.dir/flags.make
 hal/CMakeFiles/hal.dir/src/hardwareCommands.c.o: ../hal/src/hardwareCommands.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/cmpt433/work/433-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object hal/CMakeFiles/hal.dir/src/hardwareCommands.c.o"
-	cd /home/daniel/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hal.dir/src/hardwareCommands.c.o -c /home/daniel/cmpt433/work/433-project/hal/src/hardwareCommands.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lew/cmpt433/work/433-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object hal/CMakeFiles/hal.dir/src/hardwareCommands.c.o"
+	cd /home/lew/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hal.dir/src/hardwareCommands.c.o -c /home/lew/cmpt433/work/433-project/hal/src/hardwareCommands.c
 
 hal/CMakeFiles/hal.dir/src/hardwareCommands.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/hal.dir/src/hardwareCommands.c.i"
-	cd /home/daniel/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/daniel/cmpt433/work/433-project/hal/src/hardwareCommands.c > CMakeFiles/hal.dir/src/hardwareCommands.c.i
+	cd /home/lew/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/lew/cmpt433/work/433-project/hal/src/hardwareCommands.c > CMakeFiles/hal.dir/src/hardwareCommands.c.i
 
 hal/CMakeFiles/hal.dir/src/hardwareCommands.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/hal.dir/src/hardwareCommands.c.s"
-	cd /home/daniel/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/daniel/cmpt433/work/433-project/hal/src/hardwareCommands.c -o CMakeFiles/hal.dir/src/hardwareCommands.c.s
+	cd /home/lew/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/lew/cmpt433/work/433-project/hal/src/hardwareCommands.c -o CMakeFiles/hal.dir/src/hardwareCommands.c.s
 
 hal/CMakeFiles/hal.dir/src/icm20948.c.o: hal/CMakeFiles/hal.dir/flags.make
 hal/CMakeFiles/hal.dir/src/icm20948.c.o: ../hal/src/icm20948.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/cmpt433/work/433-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object hal/CMakeFiles/hal.dir/src/icm20948.c.o"
-	cd /home/daniel/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hal.dir/src/icm20948.c.o -c /home/daniel/cmpt433/work/433-project/hal/src/icm20948.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lew/cmpt433/work/433-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object hal/CMakeFiles/hal.dir/src/icm20948.c.o"
+	cd /home/lew/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hal.dir/src/icm20948.c.o -c /home/lew/cmpt433/work/433-project/hal/src/icm20948.c
 
 hal/CMakeFiles/hal.dir/src/icm20948.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/hal.dir/src/icm20948.c.i"
-	cd /home/daniel/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/daniel/cmpt433/work/433-project/hal/src/icm20948.c > CMakeFiles/hal.dir/src/icm20948.c.i
+	cd /home/lew/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/lew/cmpt433/work/433-project/hal/src/icm20948.c > CMakeFiles/hal.dir/src/icm20948.c.i
 
 hal/CMakeFiles/hal.dir/src/icm20948.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/hal.dir/src/icm20948.c.s"
-	cd /home/daniel/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/daniel/cmpt433/work/433-project/hal/src/icm20948.c -o CMakeFiles/hal.dir/src/icm20948.c.s
+	cd /home/lew/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/lew/cmpt433/work/433-project/hal/src/icm20948.c -o CMakeFiles/hal.dir/src/icm20948.c.s
 
 hal/CMakeFiles/hal.dir/src/joystick.c.o: hal/CMakeFiles/hal.dir/flags.make
 hal/CMakeFiles/hal.dir/src/joystick.c.o: ../hal/src/joystick.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/cmpt433/work/433-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object hal/CMakeFiles/hal.dir/src/joystick.c.o"
-	cd /home/daniel/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hal.dir/src/joystick.c.o -c /home/daniel/cmpt433/work/433-project/hal/src/joystick.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lew/cmpt433/work/433-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object hal/CMakeFiles/hal.dir/src/joystick.c.o"
+	cd /home/lew/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hal.dir/src/joystick.c.o -c /home/lew/cmpt433/work/433-project/hal/src/joystick.c
 
 hal/CMakeFiles/hal.dir/src/joystick.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/hal.dir/src/joystick.c.i"
-	cd /home/daniel/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/daniel/cmpt433/work/433-project/hal/src/joystick.c > CMakeFiles/hal.dir/src/joystick.c.i
+	cd /home/lew/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/lew/cmpt433/work/433-project/hal/src/joystick.c > CMakeFiles/hal.dir/src/joystick.c.i
 
 hal/CMakeFiles/hal.dir/src/joystick.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/hal.dir/src/joystick.c.s"
-	cd /home/daniel/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/daniel/cmpt433/work/433-project/hal/src/joystick.c -o CMakeFiles/hal.dir/src/joystick.c.s
+	cd /home/lew/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/lew/cmpt433/work/433-project/hal/src/joystick.c -o CMakeFiles/hal.dir/src/joystick.c.s
 
 hal/CMakeFiles/hal.dir/src/lightSensor.c.o: hal/CMakeFiles/hal.dir/flags.make
 hal/CMakeFiles/hal.dir/src/lightSensor.c.o: ../hal/src/lightSensor.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/cmpt433/work/433-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object hal/CMakeFiles/hal.dir/src/lightSensor.c.o"
-	cd /home/daniel/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hal.dir/src/lightSensor.c.o -c /home/daniel/cmpt433/work/433-project/hal/src/lightSensor.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lew/cmpt433/work/433-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object hal/CMakeFiles/hal.dir/src/lightSensor.c.o"
+	cd /home/lew/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hal.dir/src/lightSensor.c.o -c /home/lew/cmpt433/work/433-project/hal/src/lightSensor.c
 
 hal/CMakeFiles/hal.dir/src/lightSensor.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/hal.dir/src/lightSensor.c.i"
-	cd /home/daniel/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/daniel/cmpt433/work/433-project/hal/src/lightSensor.c > CMakeFiles/hal.dir/src/lightSensor.c.i
+	cd /home/lew/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/lew/cmpt433/work/433-project/hal/src/lightSensor.c > CMakeFiles/hal.dir/src/lightSensor.c.i
 
 hal/CMakeFiles/hal.dir/src/lightSensor.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/hal.dir/src/lightSensor.c.s"
-	cd /home/daniel/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/daniel/cmpt433/work/433-project/hal/src/lightSensor.c -o CMakeFiles/hal.dir/src/lightSensor.c.s
+	cd /home/lew/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/lew/cmpt433/work/433-project/hal/src/lightSensor.c -o CMakeFiles/hal.dir/src/lightSensor.c.s
 
 hal/CMakeFiles/hal.dir/src/motionSensor.c.o: hal/CMakeFiles/hal.dir/flags.make
 hal/CMakeFiles/hal.dir/src/motionSensor.c.o: ../hal/src/motionSensor.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/cmpt433/work/433-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object hal/CMakeFiles/hal.dir/src/motionSensor.c.o"
-	cd /home/daniel/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hal.dir/src/motionSensor.c.o -c /home/daniel/cmpt433/work/433-project/hal/src/motionSensor.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lew/cmpt433/work/433-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object hal/CMakeFiles/hal.dir/src/motionSensor.c.o"
+	cd /home/lew/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hal.dir/src/motionSensor.c.o -c /home/lew/cmpt433/work/433-project/hal/src/motionSensor.c
 
 hal/CMakeFiles/hal.dir/src/motionSensor.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/hal.dir/src/motionSensor.c.i"
-	cd /home/daniel/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/daniel/cmpt433/work/433-project/hal/src/motionSensor.c > CMakeFiles/hal.dir/src/motionSensor.c.i
+	cd /home/lew/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/lew/cmpt433/work/433-project/hal/src/motionSensor.c > CMakeFiles/hal.dir/src/motionSensor.c.i
 
 hal/CMakeFiles/hal.dir/src/motionSensor.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/hal.dir/src/motionSensor.c.s"
-	cd /home/daniel/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/daniel/cmpt433/work/433-project/hal/src/motionSensor.c -o CMakeFiles/hal.dir/src/motionSensor.c.s
+	cd /home/lew/cmpt433/work/433-project/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/lew/cmpt433/work/433-project/hal/src/motionSensor.c -o CMakeFiles/hal.dir/src/motionSensor.c.s
 
 # Object files for target hal
 hal_OBJECTS = \
@@ -174,9 +174,9 @@ hal/libhal.a: hal/CMakeFiles/hal.dir/src/lightSensor.c.o
 hal/libhal.a: hal/CMakeFiles/hal.dir/src/motionSensor.c.o
 hal/libhal.a: hal/CMakeFiles/hal.dir/build.make
 hal/libhal.a: hal/CMakeFiles/hal.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/daniel/cmpt433/work/433-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking C static library libhal.a"
-	cd /home/daniel/cmpt433/work/433-project/build/hal && $(CMAKE_COMMAND) -P CMakeFiles/hal.dir/cmake_clean_target.cmake
-	cd /home/daniel/cmpt433/work/433-project/build/hal && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/hal.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lew/cmpt433/work/433-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking C static library libhal.a"
+	cd /home/lew/cmpt433/work/433-project/build/hal && $(CMAKE_COMMAND) -P CMakeFiles/hal.dir/cmake_clean_target.cmake
+	cd /home/lew/cmpt433/work/433-project/build/hal && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/hal.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 hal/CMakeFiles/hal.dir/build: hal/libhal.a
@@ -184,10 +184,10 @@ hal/CMakeFiles/hal.dir/build: hal/libhal.a
 .PHONY : hal/CMakeFiles/hal.dir/build
 
 hal/CMakeFiles/hal.dir/clean:
-	cd /home/daniel/cmpt433/work/433-project/build/hal && $(CMAKE_COMMAND) -P CMakeFiles/hal.dir/cmake_clean.cmake
+	cd /home/lew/cmpt433/work/433-project/build/hal && $(CMAKE_COMMAND) -P CMakeFiles/hal.dir/cmake_clean.cmake
 .PHONY : hal/CMakeFiles/hal.dir/clean
 
 hal/CMakeFiles/hal.dir/depend:
-	cd /home/daniel/cmpt433/work/433-project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/daniel/cmpt433/work/433-project /home/daniel/cmpt433/work/433-project/hal /home/daniel/cmpt433/work/433-project/build /home/daniel/cmpt433/work/433-project/build/hal /home/daniel/cmpt433/work/433-project/build/hal/CMakeFiles/hal.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/lew/cmpt433/work/433-project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lew/cmpt433/work/433-project /home/lew/cmpt433/work/433-project/hal /home/lew/cmpt433/work/433-project/build /home/lew/cmpt433/work/433-project/build/hal /home/lew/cmpt433/work/433-project/build/hal/CMakeFiles/hal.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : hal/CMakeFiles/hal.dir/depend
 

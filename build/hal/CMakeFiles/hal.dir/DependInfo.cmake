@@ -4,12 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/daniel/cmpt433/work/433-project/hal/src/forceSensor.c" "/home/daniel/cmpt433/work/433-project/build/hal/CMakeFiles/hal.dir/src/forceSensor.c.o"
-  "/home/daniel/cmpt433/work/433-project/hal/src/hardwareCommands.c" "/home/daniel/cmpt433/work/433-project/build/hal/CMakeFiles/hal.dir/src/hardwareCommands.c.o"
-  "/home/daniel/cmpt433/work/433-project/hal/src/icm20948.c" "/home/daniel/cmpt433/work/433-project/build/hal/CMakeFiles/hal.dir/src/icm20948.c.o"
-  "/home/daniel/cmpt433/work/433-project/hal/src/joystick.c" "/home/daniel/cmpt433/work/433-project/build/hal/CMakeFiles/hal.dir/src/joystick.c.o"
-  "/home/daniel/cmpt433/work/433-project/hal/src/lightSensor.c" "/home/daniel/cmpt433/work/433-project/build/hal/CMakeFiles/hal.dir/src/lightSensor.c.o"
-  "/home/daniel/cmpt433/work/433-project/hal/src/motionSensor.c" "/home/daniel/cmpt433/work/433-project/build/hal/CMakeFiles/hal.dir/src/motionSensor.c.o"
+  "/home/lew/cmpt433/work/433-project/hal/src/forceSensor.c" "/home/lew/cmpt433/work/433-project/build/hal/CMakeFiles/hal.dir/src/forceSensor.c.o"
+  "/home/lew/cmpt433/work/433-project/hal/src/hardwareCommands.c" "/home/lew/cmpt433/work/433-project/build/hal/CMakeFiles/hal.dir/src/hardwareCommands.c.o"
+  "/home/lew/cmpt433/work/433-project/hal/src/icm20948.c" "/home/lew/cmpt433/work/433-project/build/hal/CMakeFiles/hal.dir/src/icm20948.c.o"
+  "/home/lew/cmpt433/work/433-project/hal/src/joystick.c" "/home/lew/cmpt433/work/433-project/build/hal/CMakeFiles/hal.dir/src/joystick.c.o"
+  "/home/lew/cmpt433/work/433-project/hal/src/lightSensor.c" "/home/lew/cmpt433/work/433-project/build/hal/CMakeFiles/hal.dir/src/lightSensor.c.o"
+  "/home/lew/cmpt433/work/433-project/hal/src/motionSensor.c" "/home/lew/cmpt433/work/433-project/build/hal/CMakeFiles/hal.dir/src/motionSensor.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

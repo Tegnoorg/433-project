@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "app/light_sampler"
+			"path" : "app/availability"
 		}
 	],
 	"backtrace" : 1,
@@ -110,11 +110,11 @@
 			[
 				{
 					"backtrace" : 7,
-					"path" : "/home/daniel/cmpt433/work/433-project/app/include"
+					"path" : "/home/lew/cmpt433/work/433-project/app/include"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "/home/daniel/cmpt433/work/433-project/hal/include"
+					"path" : "/home/lew/cmpt433/work/433-project/hal/include"
 				}
 			],
 			"language" : "C",
@@ -132,7 +132,7 @@
 			"id" : "hal::@ad971efe0e95b39e260f"
 		}
 	],
-	"id" : "light_sampler::@5f5a17c01335469806cb",
+	"id" : "availability::@5f5a17c01335469806cb",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -163,8 +163,8 @@
 		],
 		"language" : "C"
 	},
-	"name" : "light_sampler",
-	"nameOnDisk" : "light_sampler",
+	"name" : "availability",
+	"nameOnDisk" : "availability",
 	"paths" : 
 	{
 		"build" : "app",

@@ -3,19 +3,19 @@
 
 hal/CMakeFiles/hal.dir/src/forceSensor.c.o
  ../hal/include/forceSensor.h
- /home/daniel/cmpt433/work/433-project/hal/src/forceSensor.c
+ /home/lew/cmpt433/work/433-project/hal/src/forceSensor.c
 hal/CMakeFiles/hal.dir/src/hardwareCommands.c.o
- /home/daniel/cmpt433/work/433-project/hal/src/hardwareCommands.c
+ /home/lew/cmpt433/work/433-project/hal/src/hardwareCommands.c
 hal/CMakeFiles/hal.dir/src/icm20948.c.o
  ../hal/include/hardwareCommands.h
  ../hal/include/icm20948.h
- /home/daniel/cmpt433/work/433-project/hal/src/icm20948.c
+ /home/lew/cmpt433/work/433-project/hal/src/icm20948.c
 hal/CMakeFiles/hal.dir/src/joystick.c.o
  ../hal/include/joystick.h
- /home/daniel/cmpt433/work/433-project/hal/src/joystick.c
+ /home/lew/cmpt433/work/433-project/hal/src/joystick.c
 hal/CMakeFiles/hal.dir/src/lightSensor.c.o
  ../hal/include/lightSensor.h
- /home/daniel/cmpt433/work/433-project/hal/src/lightSensor.c
+ /home/lew/cmpt433/work/433-project/hal/src/lightSensor.c
 hal/CMakeFiles/hal.dir/src/motionSensor.c.o
  ../hal/include/hardwareCommands.h
- /home/daniel/cmpt433/work/433-project/hal/src/motionSensor.c
+ /home/lew/cmpt433/work/433-project/hal/src/motionSensor.c
