@@ -39,8 +39,8 @@ exports.listen = function(server) {
 	
 	// io.connect('http://192.168.7.2:8088/');
 	// var socket = io.connect();
-	setInterval(getMotionSensorReading, 2000);
-	// setInterval(getForceSensorReading, 2000); // teg
+	// setInterval(getMotionSensorReading, 2000);
+	setInterval(getForceSensorReading, 2000); // teg
 	setInterval(getLightSensorReading, 2000);
 	// handleCommand(socket);
 	// io.sockets.on('connection', function(socket) {
@@ -199,8 +199,8 @@ async function updateDB(toSet){
         const db = client.db(dbName);
         const collection = db.collection("availability");
         // update
-		// const documents = await collection.updateOne({beaglebone: 2}, {$set: {isAvailable: toSet}}); // teg
-        const documents = await collection.updateOne({beaglebone: 2}, {$set: {isAvailable: toSet}});
+		const documents = await collection.updateOne({beaglebone: 1}, {$set: {isAvailable: toSet}}); // teg
+        //const documents = await collection.updateOne({beaglebone: 2}, {$set: {isAvailable: toSet}});
         // const result = await db.collection('availability').insertOne({ name: 'John Doe', true: 30 });
         console.log(documents);
         // Your query code here...
@@ -223,8 +223,8 @@ async function updateDB2(toSet){
         const db = client.db(dbName);
         const collection = db.collection("availability");
         // update
-		// const documents = await collection.updateOne({beaglebone: 1}, {$set: {lightOn: toSet}}); // teg
-        const documents = await collection.updateOne({beaglebone: 2}, {$set: {lightOn: toSet}}); 
+		const documents = await collection.updateOne({beaglebone: 1}, {$set: {lightOn: toSet}}); // teg
+        //const documents = await collection.updateOne({beaglebone: 2}, {$set: {lightOn: toSet}}); 
         
         console.log(documents);
         // Your query code here...

@@ -3,7 +3,7 @@
 #include "network.h"
 #include <stdio.h>
 
-#define BEAGLE_ID 0
+#define BEAGLE_ID 1
 
 int main(void)
 {
