@@ -96,22 +96,30 @@ var HOST = '192.168.7.2';
 
 function updateMotionReading(socket) {
 	var client = dgram.createSocket('udp4');
-	var buffer = "tempo";
-	client.send(buffer, 0, buffer.length, PORT, HOST, function(err, bytes) {
-		if (err) 
-			throw err;
-		// console.log('UDP message sent to ' + HOST +':'+ PORT);
-	});
+	// var buffer = "tempo";
+	// client.send(buffer, 0, buffer.length, PORT, HOST, function(err, bytes) {
+	// 	if (err) 
+	// 		throw err;
+	// 	// console.log('UDP message sent to ' + HOST +':'+ PORT);
+	// });
 
 	client.on('listening', function () {
 		var address = client.address();
 		// console.log('UDP Client: listening on ' + address.address + ":" + address.port);
 	});
+	// console.log("hioahdfioashdfaoishdoaishdfoaisdhfaosidhfasoifhasoidhf");
+	getDB(socket);
+	// console.log(`dasjkflsdfklasdjkfklsdjflaksdjflsakdjflaksjdfalskdfjalk: ${motionDetected}`);
+	// var reply = "motion2 ";
+	// if (motionDetected == '1') {
+	// 	reply += 'Yes'
+	// } else {
+	// 	reply += 'No'
+	// }
+	// // var reply = message.toString('utf8')
+	// socket.emit('commandReply', reply);
 	client.on('message', function (message, remote) {
 		// console.log("UDP Client: message Rx" + remote.address + ':' + remote.port +' - ' + message);
-
-		var reply = message.toString('utf8')
-		socket.emit('commandReply', reply);
 
 		client.close();
 
@@ -172,7 +180,7 @@ function updateMotionReading(socket) {
 // 	});
 // }
 
-async function getDB(toSet){
+async function getDB(socket){
 	try {
         // Connect the client to the server
         await client.connect();
@@ -182,9 +190,15 @@ async function getDB(toSet){
         const db = client.db(dbName);
         const collection = db.collection("availability");
         // update
-        const documents = await collection.find({isAvailable: "0"}).toArray();
-        console.log(documents);
-        // Your query code here...
+        const documents = await collection.find({beaglebone: 2}).toArray();
+        var motionDetected = documents[0].isAvailable;
+		var reply = "motion2 ";
+		if (motionDetected == '1') {
+			reply += 'Yes'
+		} else {
+			reply += 'No'
+		}
+		socket.emit('commandReply', reply);
     } finally {
         // Close the client
         await client.close();

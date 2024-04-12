@@ -45,15 +45,9 @@ $(document).ready(function() {
 		$('#error-box').hide()
 		beatboxErr = false;
 
-		if (result.startsWith("mode")) {
-			var num = result.split(" ")[1];
-			var mode = "None";
-			if (num == 1) {
-				mode = "Rock #1"
-			} else if (num == 2) {
-				mode = "Rock?"
-			}
-			$('#modeid').text(mode)
+		if (result.startsWith("motion2")) {
+			var val = result.split(" ")[1];
+			$('#motion-2').text(`Motion Detected: ${val}`)
 		}
 		else if (result.startsWith("volume")){
 			$('#volumeid').val(result.split(" ")[1])
