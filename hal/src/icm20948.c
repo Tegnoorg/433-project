@@ -27,7 +27,7 @@
 #define GZMSB 0x37
 #define GZLSB 0x38 
 #define ACCELERATION_THRESHOLD 0.05
-#define GYRO_THRESHOLD 0.1
+#define GYRO_THRESHOLD 0.5
 #define GRAVITY 9.8
 #define CALLIBRATION 0.1
 
@@ -85,6 +85,7 @@ static bool stopping = false;
 void ICM20948_init(int id)
 {
     bid = id;
+    stopping = false;
     // Period_init();
     runCommand("config-pin P9_18 i2c");
     runCommand("config-pin P9_17 i2c");
@@ -163,10 +164,7 @@ static void readI2cReg(int i2cFileDesc, unsigned char regAddr)
         perror("I2C: Unable to read from i2c register");
         exit(1);
     }
-    // for (int i = 0; i < 12; i++) {
-    //     printf("%u ", buff[i]);
-    // }
-    // printf("\n");
+  
     int16_t xa = (buff[0] << 8) | (buff[1]);
     int16_t ya = (buff[2] << 8) | (buff[3]);
     int16_t za = (buff[4] << 8) | (buff[5]);
@@ -182,7 +180,7 @@ static void readI2cReg(int i2cFileDesc, unsigned char regAddr)
     lastYValGyro = yg / 131.0;
     lastZValGyro = zg / 131.0;
     //printf("%.2f %.2f %.2f ::: %.2f %.2f %.2f\n", lastXValAcc, lastYValAcc, lastZValAcc, lastXValGyro, lastYValGyro, lastZValGyro);
-    sleepForMs(75);
+    // sleepForMs(100);
 }
 
 // static unsigned char readI2cReg2(int i2cFileDesc, unsigned char regAddr)
@@ -235,11 +233,11 @@ void getDistance(void){
     // double correctedZ = 0;
     writeI2cReg(i2cFileDesc, 0x06, 0x01);
 
-    if(lastXValGyro > GYRO_THRESHOLD || -GYRO_THRESHOLD < -lastXValGyro){
+    if(fabs(lastXValGyro) > GYRO_THRESHOLD ){
         xgc += lastXValGyro*0.1;
         //xChange = 1;
     }
-    if(lastYValGyro > GYRO_THRESHOLD || -GYRO_THRESHOLD < -lastYValGyro){
+    if(fabs(lastYValGyro) > GYRO_THRESHOLD){
         ygc += lastYValGyro*0.1;
     }
 
@@ -278,7 +276,7 @@ void getDistance(void){
 
     printf("GX: %.2f  GY: %.2f || CX: %.2f CY: %.2f || AX: %.2f AY: %.2f  || DISTANCE: %.2f m \n", xgc, ygc, correctedX, correctedY, lastXValAcc, lastYValAcc, distance);
 
-    // sleepForMs(100);
+    sleepForMs(100);
 }
 
 double totalDistance(int id){

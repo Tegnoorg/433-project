@@ -2,10 +2,11 @@
 #include "../../hal/include/motionSensor.h"
 #include "network.h"
 #include "../../hal/include/joystick.h"
+#include "../../hal/include/hardwareCommands.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-#define BEAGLE_ID 3
+#define BEAGLE_ID 1
 
 int main(void)
 {
@@ -26,14 +27,17 @@ int main(void)
                 resetDistance(2);
                 ICM20948_init(2);
                 printf("starting distance from teg's beagle: \n");
+                sleepForMs(500);
                 while(1){
                     if(Joystick_getDirectionPressed() == JOYSTICK_LEFT ){
+                        ICM20948_cleanup();\
+                        sleepForMs(500);
                         printf("saving distance of teg's beagle\n");
-                        printf("total distance: %2.f", totalDistance(2));
-                        ICM20948_cleanup();
+                        printf("total distance: %.2f\n", totalDistance(2));
+                        
                         break;
                     }
-                    getDistance();
+                    // getDistance();
                 }
             }
 
@@ -42,14 +46,17 @@ int main(void)
                 resetDistance(3);
                 ICM20948_init(3);
                 printf("starting distance from steven's beagle: \n");
+                sleepForMs(500);
                 while(1){
                     if(Joystick_getDirectionPressed() == JOYSTICK_RIGHT ){
-                        printf("saving distance of steven's beagle\n");
-                        printf("total distance: %2.f", totalDistance(3));
                         ICM20948_cleanup();
+                        sleepForMs(500);
+                        printf("saving distance of steven's beagle\n");
+                        printf("total distance: %.2f\n", totalDistance(3));
+                        
                         break;
                     }
-                    getDistance();
+                    // getDistance();
                 }
             }
 
