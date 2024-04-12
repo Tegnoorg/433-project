@@ -265,21 +265,27 @@ void getDistance(void){
 
     if(correctedX > 0.05){
         calculateDistance(correctedX,0);
+        correctedX = 0;
     }
     if(correctedY > 0.05){
         calculateDistance(correctedY,1);
+        correctedY = 0;
     }
     if((correctedZ - 1) > 0.05){
         calculateDistance((correctedZ - 1),2);
+        correctedZ = 0;
     }
     if(correctedX < -0.05){
         calculateDistance((correctedZ - 1),0);
+        correctedX = 0;
     }
     if(correctedY < -0.05){
         calculateDistance((correctedY*-1),1);
+        correctedY = 0;
     }
     if((correctedZ - 1) <  -0.05){
         calculateDistance(((correctedZ - 1)*-1),2);
+        correctedZ = 0 ;
     }
 
 
