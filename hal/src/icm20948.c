@@ -25,6 +25,8 @@
 #define GYLSB 0x36
 #define GZMSB 0x37
 #define GZLSB 0x38 
+#define ACCELERATION_THRESHOLD 0.1
+#define GYRO_THRESHOLD 1
 
 // #define AXMSB 0
 // #define AXLSB 1
@@ -60,7 +62,6 @@ static double velocityx = 0;
 static double velocityy = 0;
 static double velocityz = 0;
 static double distance = 0;
-static double timePassed = 0;
 
 // static bool stopping = false;
 static int initI2cBus(char* bus, int address);
@@ -106,7 +107,7 @@ static void* accelThreadFn(void* args)
         //         readI2cReg2(i2cFileDesc, GZMSB), readI2cReg2(i2cFileDesc, GZLSB));
         readI2cReg(i2cFileDesc, 0xad);
         getDistance();
-        printf("distance: %f\n", totalDistance());
+        // printf("distance: %f, accel x: %f y: %f z:%f\n", totalDistance(), lastXValAcc, lastYValAcc, lastZValAcc);
         // resetDistance();
         // sleepForMs(100);
     }
@@ -191,23 +192,28 @@ static void readI2cReg(int i2cFileDesc, unsigned char regAddr)
 //     return value;
 // }
 
-//use acceleration to get velocity v = a*t*Vi
+// v = a*t
 static double getVelocity(double acceleration, int n){
+    double newVelocity = acceleration * 0.1;  // Calculate new velocity
     if(n == 0){
-        return acceleration*(0.1)+velocityx;
-    } else if(n == 1 ){
-        return acceleration*(0.1)+velocityy;
+        velocityx += newVelocity;  // Update velocity only if acceleration is non-zero
+    } else if(n == 1){
+        velocityy += newVelocity;
     } else{
-        return acceleration*(0.1)+velocityz;
+        velocityz += newVelocity;
+    }
+
+    return newVelocity;  // Return the new velocity
+}
+
+// d = absolute value of (v*t)
+static void calculateDistance(double acceleration, int n){
+    printf("repeating dist\n");
+    double newVelocity = getVelocity(acceleration, n);
+    if(newVelocity != 0){  // If there's non-zero velocity
+        distance += fabs(newVelocity * 0.1);  // Accumulate distance
     }
 }
-
-// using the distance formula of d = v*t + 1/2*a*t^2
-static void calculateDistance(double acceleration, int n){
-    double velocity = getVelocity(acceleration, n);
-    distance += velocity * 0.1; // Assuming time interval is 0.1 seconds
-}
-
 //returns the distance every 100ms
 void getDistance(void){
     double correctedX = 0;
@@ -215,19 +221,19 @@ void getDistance(void){
     double correctedZ = 0;
     writeI2cReg(i2cFileDesc, 0x06, 0x01);
 
-    if(lastXValGyro > 0.5){
+    if(lastXValGyro > GYRO_THRESHOLD){
         xgc += lastXValGyro;
         if(xgc< 0){
             xgc= xgc*(-1);
         }
     }
-    if(lastYValGyro > 0.5){
+    if(lastYValGyro > GYRO_THRESHOLD){
         ygc += lastYValGyro;
         if(ygc< 0){
             ygc= ygc*(-1);
         }
     }
-    if(lastZValGyro > 0.5){
+    if(lastZValGyro > GYRO_THRESHOLD){
         zgc += lastZValGyro;
         if(zgc< 0){
             zgc= zgc*(-1);
@@ -235,43 +241,30 @@ void getDistance(void){
     }
 
     if(cos(xgc) != 0){
-        correctedX = lastXValAcc/cos(xgc);
+        correctedX = fabs(lastXValAcc/cos(xgc));
     }
     if(cos(ygc) != 0){
-        correctedY = lastYValAcc/cos(ygc);
+        correctedY = fabs(lastYValAcc/cos(ygc));
     }
     if(cos(zgc) != 0){
-        correctedZ = lastZValAcc/cos(zgc);
+        correctedZ = fabs((lastZValAcc-1)/cos(zgc));
     }
 
-
-    if(correctedX > 0.05){
-        calculateDistance(correctedX,0);
-        correctedX = 0;
+    // Check if any absolute acceleration exceeds the threshold
+    if(correctedX > ACCELERATION_THRESHOLD){
+        printf("repeating Cor X \n");
+        calculateDistance(correctedX*9.8,0);
     }
-    if(correctedY > 0.05){
-        calculateDistance(correctedY,1);
-        correctedY = 0;
+    if(correctedY > ACCELERATION_THRESHOLD){
+        calculateDistance(correctedY*9.8,1);
+        printf("repeating Cor Y \n");
     }
-    if((correctedZ - 1) > 0.05){
-        calculateDistance((correctedZ - 1),2);
-        correctedZ = 0;
-    }
-    if(correctedX < -0.05){
-        calculateDistance((correctedZ - 1),0);
-        correctedX = 0;
-    }
-    if(correctedY < -0.05){
-        calculateDistance((correctedY*-1),1);
-        correctedY = 0;
-    }
-    if((correctedZ - 1) <  -0.05){
-        calculateDistance(((correctedZ - 1)*-1),2);
-        correctedZ = 0 ;
+    if(correctedZ > ACCELERATION_THRESHOLD){
+        calculateDistance((correctedZ)*9.8,2);
+        printf("repeating Cor z \n");
     }
 
-
-    //printf("x: %.2f - Y: %.2f - Z: %.2f \n", correctedX, correctedY, correctedz);
+    printf("x: %.2f - Y: %.2f - Z: %.2f  Distance: %f\n", lastXValGyro, lastYValGyro, lastZValGyro, totalDistance());
 
     sleepForMs(100);
 }
@@ -285,5 +278,4 @@ void resetDistance(void){
     velocityy = 0;
     velocityz = 0;
     distance = 0;
-    timePassed = 0;
 }

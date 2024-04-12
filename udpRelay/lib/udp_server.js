@@ -191,7 +191,7 @@ async function getDB(socket){
         const collection = db.collection("availability");
         // update
         const documents = await collection.find({}).toArray();
-		console.log(documents);
+		// console.log(documents);
         var motionDetected = documents[0].isAvailable;
 		var reply = "motion2 ";
 		if (motionDetected == '1') {
@@ -200,7 +200,44 @@ async function getDB(socket){
 			reply += 'No'
 		}
 		socket.emit('commandReply', reply);
-    } finally {
+		var light2Detected = documents[0].lightOn;
+		var reply = "light2 ";
+		if (light2Detected == '1') {
+			reply += 'Yes'
+		} else {
+			reply += 'No'
+		}
+		socket.emit('commandReply', reply);
+		if (motionDetected == '1' || light2Detected == '0') {
+			socket.emit('commandReply', 'washroom2 No');
+		} else {
+			socket.emit('commandReply', 'washroom2 Yes');
+		}
+		var forceDetected = documents[1].isAvailable;
+		var reply = "force1 ";
+		if (forceDetected == '1') {
+			reply += 'Yes'
+		} else {
+			reply += 'No'
+		}
+		socket.emit('commandReply', reply);
+		var light1Detected = documents[1].lightOn;
+		var reply = "light1 ";
+		if (light1Detected == '1') {
+			reply += 'Yes'
+		} else {
+			reply += 'No'
+		}
+		socket.emit('commandReply', reply);
+		if (forceDetected == '1' || light1Detected == '0') {
+			socket.emit('commandReply', 'washroom1 No');
+		} else {
+			socket.emit('commandReply', 'washroom1 Yes');
+		}
+    } catch (e) {
+		console.log(e);
+		socket.emit('commandReply', 'error');
+	} finally {
         // Close the client
         await client.close();
         console.log('Disconnected from MongoDB');

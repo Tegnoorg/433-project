@@ -49,29 +49,39 @@ $(document).ready(function() {
 			var val = result.split(" ")[1];
 			$('#motion-2').text(`Motion Detected: ${val}`)
 		}
-		else if (result.startsWith("volume")){
-			$('#volumeid').val(result.split(" ")[1])
+		else if (result.startsWith("light2")){
+			var val = result.split(" ")[1];
+			$('#light-2').text(`Light Detected: ${val}`)
 		}
-		else if (result.startsWith("tempo")){
-			$('#tempoid').val(result.split(" ")[1])
+		else if (result.startsWith("force1")){
+			var val = result.split(" ")[1];
+			$('#force-1').text(`Force Detected: ${val}`)
 		}
-		else if (result.startsWith("uptime")){
-			let temp = result.split(" ")[1]
-			let seconds = Math.floor(temp % 60);
-			let minutes = Math.floor((temp%3600)/60);
-			let hour = Math.floor(temp/3600);
-			var formattedSecs = ("0" + seconds).slice(-2);
-			var formattedMins = ("0" + minutes).slice(-2);
-			var formattedHrs = ("0" + hour).slice(-2);
-			$('#status').text(`${formattedHrs}:${formattedMins}:${formattedSecs} (H:M:S)`)
+		else if (result.startsWith("light1")){
+			var val = result.split(" ")[1];
+			$('#light-1').text(`Light Detected: ${val}`)
+		} else if (result.startsWith("washroom1")) {
+			var val = result.split(" ")[1];
+			if (val == 'No') {
+				$('#available-1').html(`Available: <span style="color: red">${val}</span>`)
+			} else {
+				$('#available-1').html(`Available: <span style="color: green">${val}</span>`)
+			}
+		} else if (result.startsWith("washroom2")) {
+			var val = result.split(" ")[1];
+			if (val == 'No') {
+				$('#available-2').html(`Available: <span style="color: red">${val}</span>`)
+			} else {
+				$('#available-2').html(`Available: <span style="color: green">${val}</span>`)
+			}
 		} else if (result.startsWith("error")) {
 			$('#error-box').show()
-			$('#error-text').text("No reponse from beat-box application. Is it running?")
+			$('#error-text').text("Database error")
 			beatboxErr = true;
 		}
 	});
 
-	setInterval(serverStatus, 1000);
+	// setInterval(serverStatus, 1000);
 });
 
 function sendCommandViaUDP(message) {
