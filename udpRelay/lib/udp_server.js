@@ -190,7 +190,8 @@ async function getDB(socket){
         const db = client.db(dbName);
         const collection = db.collection("availability");
         // update
-        const documents = await collection.find({beaglebone: 2}).toArray();
+        const documents = await collection.find({}).toArray();
+		console.log(documents);
         var motionDetected = documents[0].isAvailable;
 		var reply = "motion2 ";
 		if (motionDetected == '1') {

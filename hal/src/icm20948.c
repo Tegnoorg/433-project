@@ -105,8 +105,8 @@ static void* accelThreadFn(void* args)
         //         readI2cReg2(i2cFileDesc, GYMSB), readI2cReg2(i2cFileDesc, GYLSB),
         //         readI2cReg2(i2cFileDesc, GZMSB), readI2cReg2(i2cFileDesc, GZLSB));
         readI2cReg(i2cFileDesc, 0xad);
-        // getDistance();
-        // printf("distance: %f\n", returnDistance());
+        getDistance();
+        printf("distance: %f\n", totalDistance());
         // resetDistance();
         // sleepForMs(100);
     }
@@ -204,26 +204,8 @@ static double getVelocity(double acceleration, int n){
 
 // using the distance formula of d = v*t + 1/2*a*t^2
 static void calculateDistance(double acceleration, int n){
-
-    double velocity = 0;
-    \
-    if(n == 0){
-        velocityx = getVelocity(acceleration,0);
-        velocity = velocityx;
-    } else if(n == 1){
-        velocityy = getVelocity(acceleration,1);
-        velocity = velocityy;
-    } else{
-        velocityz = getVelocity(acceleration,2);
-        velocity = velocityz;
-    }
-    
-    double distanceTraveledIn100Ms = velocity*(0.1) + (acceleration*(0.005));
-        if(distanceTraveledIn100Ms <  0){
-            distance = distanceTraveledIn100Ms * -1;
-        } else{
-            distance = distanceTraveledIn100Ms;
-        }
+    double velocity = getVelocity(acceleration, n);
+    distance += velocity * 0.1; // Assuming time interval is 0.1 seconds
 }
 
 //returns the distance every 100ms
