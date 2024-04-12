@@ -74,6 +74,12 @@ $(document).ready(function() {
 			} else {
 				$('#available-2').html(`Available: <span style="color: green">${val}</span>`)
 			}
+		} else if (result.startsWith("distance2")) {
+			var val = result.split(" ")[1];
+			$('#distance-1').text(`Distance: ${val}`)
+		} else if (result.startsWith("distance3")) {
+			var val = result.split(" ")[1];
+			$('#distance-2').text(`Distance: ${val}`)
 		} else if (result.startsWith("error")) {
 			$('#error-box').show()
 			$('#error-text').text("Database error")

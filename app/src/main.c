@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define BEAGLE_ID 1
+#define BEAGLE_ID 3
 
 int main(void)
 {

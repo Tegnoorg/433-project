@@ -16,6 +16,7 @@
 #include "../../hal/include/lightSensor.h"
 #include "../../hal/include/forceSensor.h"
 #include "../../hal/include/motionSensor.h"
+#include "../../hal/include/icm20948.h"
 
 static pthread_t networkThreadId;
 static bool stopping = false;
@@ -182,6 +183,10 @@ static void sendResponse(struct sockaddr_in sinRemote, int socketDescriptor,
         } else if (strncmp(messageRx, "light", strnlen("light", MAX_LEN)) == 0) {
             snprintf(messageTx, MAX_LEN, "%d", isLightOn());
  
+        } else if (strncmp(messageRx, "distance2", strnlen("distance2", MAX_LEN)) == 0) {
+            snprintf(messageTx, MAX_LEN, "%.2f m", totalDistance(2));
+        } else if (strncmp(messageRx, "distance3", strnlen("distance3", MAX_LEN)) == 0) {
+            snprintf(messageTx, MAX_LEN, "%.2f m", totalDistance(3));
         } else {
             snprintf(messageTx, MAX_LEN, "Unknown command.\n");
         }
