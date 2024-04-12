@@ -3,6 +3,7 @@
         "lightsensor.h": "c",
         "cmath": "c",
         "iterator": "c",
-        "icm20948.h": "c"
+        "icm20948.h": "c",
+        "joystick.h": "c"
     }
 }

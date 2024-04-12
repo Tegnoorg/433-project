@@ -18,6 +18,7 @@
 #include "../../hal/include/motionSensor.h"
 
 static pthread_t networkThreadId;
+static bool stopping = false;
 // char previousCommand[MAX_LEN] = ""; 
 
 static void* rx(void* args);
@@ -35,6 +36,7 @@ void Network_init(void)
 
 void Network_cleanup(void)
 {
+    stopping = true;
     pthread_join(networkThreadId, NULL);
 }
 
@@ -55,7 +57,7 @@ static void* rx(void* args)
     // Bind the socket to the port (PORT) that we specify
     bind(socketDescriptor, (struct sockaddr*) &sin, sizeof(sin));
 
-    while (1) {
+    while (!stopping) {
         // Get the data (blocking)
         // Will change sin (the address) to be the address of the client.
         // Note: sin passes information in and out of call!

@@ -12,7 +12,7 @@ static int readIntFromFile(char* filePath);
 static void* joystickThreadFn(void* args);
 
 static pthread_t joystickThreadId;
-// static bool stopping = false;
+static bool stopping = false;
 
 void Joystick_init(void) 
 {
@@ -22,8 +22,7 @@ void Joystick_init(void)
     runCommand("config-pin p8.16 gpio");
     runCommand("config-pin p8.18 gpio");
     runCommand("config-pin p8.17 gpio");
-    runCommand("config-pin p9_18 i2c");
-    runCommand("config-pin p9_17 i2c");
+
 
     // config joystick pins for input
     writeToFile("/sys/class/gpio/gpio26/direction", "in");
@@ -37,7 +36,7 @@ void Joystick_init(void)
 
 void Joystick_cleanup(void) 
 {
-    // stopping = true;
+    stopping = true;
     pthread_join(joystickThreadId, NULL);
 }
 
@@ -63,7 +62,7 @@ static void* joystickThreadFn(void* args)
 {
     (void)args;
 
-    while (1) {
+    while (!stopping) {
         JoystickDirection joystickDirection = Joystick_getDirectionPressed();
         if (joystickDirection == JOYSTICK_IN) {
             //cycleBeat();

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
@@ -67,6 +68,8 @@ static double ygc = 0;
 static double velocityx = 0;
 static double velocityy = 0;
 static double distance = 0;
+static double distance1 = 0;
+static int bid = 0;
 
 // static bool stopping = false;
 static int initI2cBus(char* bus, int address);
@@ -75,11 +78,13 @@ static void writeI2cReg(int i2cFileDesc, unsigned char regAddr,
 static void* accelThreadFn(void* args);
 // static void* terminalThreadFn(void* args);
 static void readI2cReg(int i2cFileDesc, unsigned char regAddr);
+static bool stopping = false;
 // static unsigned char readI2cReg2(int i2cFileDesc, unsigned char regAddr);
 // void getDistance(void);
 
-void ICM20948_init(void)
+void ICM20948_init(int id)
 {
+    bid = id;
     // Period_init();
     runCommand("config-pin P9_18 i2c");
     runCommand("config-pin P9_17 i2c");
@@ -92,7 +97,7 @@ void ICM20948_init(void)
 
 void ICM20948_cleanup(void)
 {
-    // stopping = true;
+    stopping = true;
     pthread_join(accelerometerThreadId, NULL);
     // pthread_join(terminalThreadId, NULL);
 }
@@ -100,7 +105,7 @@ void ICM20948_cleanup(void)
 static void* accelThreadFn(void* args)
 {
     (void)args;
-    while (1) {
+    while (!stopping) {
         writeI2cReg(i2cFileDesc, 0x06, 0x01);
         // printf("AXMSB: %u, AXLSB: %u, AYMSB: %u, AYLSB: %u, AZMSB: %u, AZLSB: %u,"
         //         "GXMSB: %u, GXLSB: %u, GYMSB: %u, GYLSB: %u, GZMSB: %u, GZLSB: %u \n", 
@@ -212,9 +217,13 @@ static double getVelocity(double acceleration, int n){
 }
 
 // d = absolute value of (v*t)
-static void calculateDistance(double acceleration, int n){
-
-        distance += fabs(getVelocity(acceleration, n)) + acceleration *0.01;  // Accumulate distance
+static void calculateDistance(double acceleration, int n, int id){
+        if (id == 3){
+            distance1 += fabs(getVelocity(acceleration, n)) + acceleration *0.01;
+        }else{
+            distance += fabs(getVelocity(acceleration, n)) + acceleration *0.01;
+        }
+          // Accumulate distance
 }
 //returns the distance every 100ms
 void getDistance(void){
@@ -244,12 +253,12 @@ void getDistance(void){
 
     if(fabs(lastXValAcc)> ACCELERATION_THRESHOLD){
         correctedX = lastXValAcc+sin((ygc)*M_PI/180);
-        calculateDistance(correctedX*GRAVITY*CALLIBRATION,0);
+        calculateDistance(correctedX*GRAVITY*CALLIBRATION,0,bid);
     }
     
     if(fabs(lastYValAcc) > ACCELERATION_THRESHOLD){ 
         correctedY = lastYValAcc+sin((xgc)*M_PI/180);
-        calculateDistance(correctedY*GRAVITY*CALLIBRATION,1);
+        calculateDistance(correctedY*GRAVITY*CALLIBRATION,1,bid);
         //printf("repeating Cor Y \n");
     }
     
@@ -272,14 +281,23 @@ void getDistance(void){
     // sleepForMs(100);
 }
 
-double totalDistance(void){
-    return distance;
+double totalDistance(int id){
+    if(id == 3){
+        return distance1;
+    }else{
+        return distance;
+    }
 }
 
-void resetDistance(void){
+void resetDistance(int id){
     velocityx = 0;
     velocityy = 0;
     ygc = 0;
     xgc = 0;
-    distance = 0;
+    if(id == 3){
+        distance1 = 0;
+    } else{
+        distance = 0;
+    }
+    
 }
