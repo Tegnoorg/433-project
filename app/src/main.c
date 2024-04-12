@@ -6,14 +6,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define BEAGLE_ID 3
+#define BEAGLE_ID 1
 
 int main(void)
 {
 
     if(BEAGLE_ID == 1){
         // ICM20948_init();
-        // Network_init();
+        Network_init();
         // Network_cleanup();
         // ICM20948_cleanup();
         printf("beaglebone id %d is now on \n", BEAGLE_ID);
@@ -61,6 +61,7 @@ int main(void)
             }
 
         }
+        Network_cleanup();
     }
     
     if(BEAGLE_ID == 2){

@@ -184,9 +184,9 @@ static void sendResponse(struct sockaddr_in sinRemote, int socketDescriptor,
             snprintf(messageTx, MAX_LEN, "%d", isLightOn());
  
         } else if (strncmp(messageRx, "distance2", strnlen("distance2", MAX_LEN)) == 0) {
-            snprintf(messageTx, MAX_LEN, "%.2f m", totalDistance(2));
+            snprintf(messageTx, MAX_LEN, "%.2fm", totalDistance(2));
         } else if (strncmp(messageRx, "distance3", strnlen("distance3", MAX_LEN)) == 0) {
-            snprintf(messageTx, MAX_LEN, "%.2f m", totalDistance(3));
+            snprintf(messageTx, MAX_LEN, "%.2fm", totalDistance(3));
         } else {
             snprintf(messageTx, MAX_LEN, "Unknown command.\n");
         }
