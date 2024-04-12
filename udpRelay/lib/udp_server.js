@@ -169,7 +169,7 @@ async function updateDB(toSet){
         const db = client.db(dbName);
         const collection = db.collection("availability");
         // update
-        const documents = await collection.updateOne({beaglebone: 3}, {$set: {distance: toSet}});
+        const documents = await collection.updateOne({beaglebone: 2}, {$set: {distance: toSet}});
         console.log(documents);
     } catch (e) {
 		console.log(e);
@@ -182,7 +182,7 @@ async function updateDB2(toSet){
         const db = client.db(dbName);
         const collection = db.collection("availability");
         // update
-        const documents = await collection.updateOne({beaglebone: 2}, {$set: {distance: toSet}}); 
+        const documents = await collection.updateOne({beaglebone: 3}, {$set: {distance: toSet}}); 
         console.log(documents);
     } catch (e) {
 		console.log(e);
