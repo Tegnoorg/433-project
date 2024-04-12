@@ -1,0 +1,50 @@
+[
+{
+  "directory": "/home/tegnoor/cmpt433/work/433-project/build/hal",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/tegnoor/cmpt433/work/433-project/hal/hal/include -I/home/tegnoor/cmpt433/work/433-project/hal/include -g -std=gnu11 -pthread -g -Wall -Werror -Wpedantic -Wextra -fdiagnostics-color -o CMakeFiles/hal.dir/src/forceSensor.c.o -c /home/tegnoor/cmpt433/work/433-project/hal/src/forceSensor.c",
+  "file": "/home/tegnoor/cmpt433/work/433-project/hal/src/forceSensor.c",
+  "output": "hal/CMakeFiles/hal.dir/src/forceSensor.c.o"
+},
+{
+  "directory": "/home/tegnoor/cmpt433/work/433-project/build/hal",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/tegnoor/cmpt433/work/433-project/hal/hal/include -I/home/tegnoor/cmpt433/work/433-project/hal/include -g -std=gnu11 -pthread -g -Wall -Werror -Wpedantic -Wextra -fdiagnostics-color -o CMakeFiles/hal.dir/src/hardwareCommands.c.o -c /home/tegnoor/cmpt433/work/433-project/hal/src/hardwareCommands.c",
+  "file": "/home/tegnoor/cmpt433/work/433-project/hal/src/hardwareCommands.c",
+  "output": "hal/CMakeFiles/hal.dir/src/hardwareCommands.c.o"
+},
+{
+  "directory": "/home/tegnoor/cmpt433/work/433-project/build/hal",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/tegnoor/cmpt433/work/433-project/hal/hal/include -I/home/tegnoor/cmpt433/work/433-project/hal/include -g -std=gnu11 -pthread -g -Wall -Werror -Wpedantic -Wextra -fdiagnostics-color -o CMakeFiles/hal.dir/src/icm20948.c.o -c /home/tegnoor/cmpt433/work/433-project/hal/src/icm20948.c",
+  "file": "/home/tegnoor/cmpt433/work/433-project/hal/src/icm20948.c",
+  "output": "hal/CMakeFiles/hal.dir/src/icm20948.c.o"
+},
+{
+  "directory": "/home/tegnoor/cmpt433/work/433-project/build/hal",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/tegnoor/cmpt433/work/433-project/hal/hal/include -I/home/tegnoor/cmpt433/work/433-project/hal/include -g -std=gnu11 -pthread -g -Wall -Werror -Wpedantic -Wextra -fdiagnostics-color -o CMakeFiles/hal.dir/src/joystick.c.o -c /home/tegnoor/cmpt433/work/433-project/hal/src/joystick.c",
+  "file": "/home/tegnoor/cmpt433/work/433-project/hal/src/joystick.c",
+  "output": "hal/CMakeFiles/hal.dir/src/joystick.c.o"
+},
+{
+  "directory": "/home/tegnoor/cmpt433/work/433-project/build/hal",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/tegnoor/cmpt433/work/433-project/hal/hal/include -I/home/tegnoor/cmpt433/work/433-project/hal/include -g -std=gnu11 -pthread -g -Wall -Werror -Wpedantic -Wextra -fdiagnostics-color -o CMakeFiles/hal.dir/src/lightSensor.c.o -c /home/tegnoor/cmpt433/work/433-project/hal/src/lightSensor.c",
+  "file": "/home/tegnoor/cmpt433/work/433-project/hal/src/lightSensor.c",
+  "output": "hal/CMakeFiles/hal.dir/src/lightSensor.c.o"
+},
+{
+  "directory": "/home/tegnoor/cmpt433/work/433-project/build/hal",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/tegnoor/cmpt433/work/433-project/hal/hal/include -I/home/tegnoor/cmpt433/work/433-project/hal/include -g -std=gnu11 -pthread -g -Wall -Werror -Wpedantic -Wextra -fdiagnostics-color -o CMakeFiles/hal.dir/src/motionSensor.c.o -c /home/tegnoor/cmpt433/work/433-project/hal/src/motionSensor.c",
+  "file": "/home/tegnoor/cmpt433/work/433-project/hal/src/motionSensor.c",
+  "output": "hal/CMakeFiles/hal.dir/src/motionSensor.c.o"
+},
+{
+  "directory": "/home/tegnoor/cmpt433/work/433-project/build/app",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/tegnoor/cmpt433/work/433-project/app/include -I/home/tegnoor/cmpt433/work/433-project/hal/include -g -std=gnu11 -pthread -g -Wall -Werror -Wpedantic -Wextra -fdiagnostics-color -o CMakeFiles/light_sampler.dir/src/main.c.o -c /home/tegnoor/cmpt433/work/433-project/app/src/main.c",
+  "file": "/home/tegnoor/cmpt433/work/433-project/app/src/main.c",
+  "output": "app/CMakeFiles/light_sampler.dir/src/main.c.o"
+},
+{
+  "directory": "/home/tegnoor/cmpt433/work/433-project/build/app",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/tegnoor/cmpt433/work/433-project/app/include -I/home/tegnoor/cmpt433/work/433-project/hal/include -g -std=gnu11 -pthread -g -Wall -Werror -Wpedantic -Wextra -fdiagnostics-color -o CMakeFiles/light_sampler.dir/src/network.c.o -c /home/tegnoor/cmpt433/work/433-project/app/src/network.c",
+  "file": "/home/tegnoor/cmpt433/work/433-project/app/src/network.c",
+  "output": "app/CMakeFiles/light_sampler.dir/src/network.c.o"
+}
+]
