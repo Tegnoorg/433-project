@@ -26,6 +26,7 @@ static int getLightSeonsor(){
 
 
 bool isLightOn(void){
+    printf("Light: %d\n", getLightSeonsor());
     if(getLightSeonsor() >= 1200){
         return true;
     } else {

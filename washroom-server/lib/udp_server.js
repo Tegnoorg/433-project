@@ -199,7 +199,7 @@ async function updateDB(toSet){
         const db = client.db(dbName);
         const collection = db.collection("availability");
         // update
-		const documents = await collection.updateOne({beaglebone: 1}, {$set: {isAvailable: toSet}}); // teg
+		const documents = await collection.updateOne({beaglebone: 3}, {$set: {isAvailable: toSet}}); // teg
         //const documents = await collection.updateOne({beaglebone: 2}, {$set: {isAvailable: toSet}});
         // const result = await db.collection('availability').insertOne({ name: 'John Doe', true: 30 });
         console.log(documents);
@@ -223,7 +223,7 @@ async function updateDB2(toSet){
         const db = client.db(dbName);
         const collection = db.collection("availability");
         // update
-		const documents = await collection.updateOne({beaglebone: 1}, {$set: {lightOn: toSet}}); // teg
+		const documents = await collection.updateOne({beaglebone: 3}, {$set: {lightOn: toSet}}); // teg
         //const documents = await collection.updateOne({beaglebone: 2}, {$set: {lightOn: toSet}}); 
         
         console.log(documents);

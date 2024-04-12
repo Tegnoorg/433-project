@@ -63,20 +63,20 @@ static void* joystickThreadFn(void* args)
 {
     (void)args;
 
-    while (!Shutdown_isShutdown()) {
+    while (1) {
         JoystickDirection joystickDirection = Joystick_getDirectionPressed();
         if (joystickDirection == JOYSTICK_IN) {
-            cycleBeat();
+            //cycleBeat();
         } else if (joystickDirection == JOYSTICK_DOWN) {
-            decreaseVolume();
+            //decreaseVolume();
         } else if (joystickDirection == JOYSTICK_LEFT) {
-            decreaseTempo();
+            //decreaseTempo();
         } else if (joystickDirection == JOYSTICK_RIGHT) {
-            increaseTempo();
+            //increaseTempo();
         } else if (joystickDirection == JOYSTICK_UP) {
-            increaseVolume();
+            //increaseVolume();
         }
-        sleepForMs(10);
+        //sleepForMs(10);
     }
     return NULL;
 }

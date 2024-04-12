@@ -26,6 +26,8 @@ static int getForceSeonsor(){
 
 
 bool hasForce(void){
+
+    printf("Force: %d\n", getForceSeonsor());
     if(getForceSeonsor() > 1500){
         return true;
     } else {
