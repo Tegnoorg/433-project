@@ -2,6 +2,7 @@
     "files.associations": {
         "lightsensor.h": "c",
         "cmath": "c",
-        "iterator": "c"
+        "iterator": "c",
+        "icm20948.h": "c"
     }
 }

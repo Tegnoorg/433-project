@@ -25,8 +25,10 @@
 #define GYLSB 0x36
 #define GZMSB 0x37
 #define GZLSB 0x38 
-#define ACCELERATION_THRESHOLD 0.1
-#define GYRO_THRESHOLD 1
+#define ACCELERATION_THRESHOLD 0.05
+#define GYRO_THRESHOLD 0.1
+#define GRAVITY 9.8
+#define CALLIBRATION 0.1
 
 // #define AXMSB 0
 // #define AXLSB 1
@@ -45,6 +47,10 @@
 // config-pin P9_17 i2c
 // i2cset -y 1 0x69 0x06 0x00 this enables the icm 20948
 
+// static double oldVelocityX = 0.0;
+// static double oldDistanceX = 0.0;
+// static double totalTime = 0.0;
+
 
 static pthread_t accelerometerThreadId;
 // static pthread_t terminalThreadId;
@@ -57,10 +63,9 @@ static double lastYValGyro = 0;
 static double lastZValGyro = 0;
 static double xgc = 0;//total x gyro scope movemnt
 static double ygc = 0;
-static double zgc = 0;
+// static double zgc = 0;
 static double velocityx = 0;
 static double velocityy = 0;
-static double velocityz = 0;
 static double distance = 0;
 
 // static bool stopping = false;
@@ -172,6 +177,7 @@ static void readI2cReg(int i2cFileDesc, unsigned char regAddr)
     lastYValGyro = yg / 131.0;
     lastZValGyro = zg / 131.0;
     //printf("%.2f %.2f %.2f ::: %.2f %.2f %.2f\n", lastXValAcc, lastYValAcc, lastZValAcc, lastXValGyro, lastYValGyro, lastZValGyro);
+    sleepForMs(75);
 }
 
 // static unsigned char readI2cReg2(int i2cFileDesc, unsigned char regAddr)
@@ -197,10 +203,9 @@ static double getVelocity(double acceleration, int n){
     double newVelocity = acceleration * 0.1;  // Calculate new velocity
     if(n == 0){
         velocityx += newVelocity;  // Update velocity only if acceleration is non-zero
-    } else if(n == 1){
+    } 
+    if(n == 1){
         velocityy += newVelocity;
-    } else{
-        velocityz += newVelocity;
     }
 
     return newVelocity;  // Return the new velocity
@@ -208,65 +213,63 @@ static double getVelocity(double acceleration, int n){
 
 // d = absolute value of (v*t)
 static void calculateDistance(double acceleration, int n){
-    printf("repeating dist\n");
-    double newVelocity = getVelocity(acceleration, n);
-    if(newVelocity != 0){  // If there's non-zero velocity
-        distance += fabs(newVelocity * 0.1);  // Accumulate distance
-    }
+
+        distance += fabs(getVelocity(acceleration, n)) + acceleration *0.01;  // Accumulate distance
 }
 //returns the distance every 100ms
 void getDistance(void){
     double correctedX = 0;
-    double correctedY = 0;
-    double correctedZ = 0;
+    //int xChange = 0;
+    // int zChange = 0;
+    // int yChange = 0;
+     double correctedY = 0;
+    // double correctedZ = 0;
     writeI2cReg(i2cFileDesc, 0x06, 0x01);
 
-    if(lastXValGyro > GYRO_THRESHOLD){
-        xgc += lastXValGyro;
-        if(xgc< 0){
-            xgc= xgc*(-1);
-        }
+    if(lastXValGyro > GYRO_THRESHOLD || -GYRO_THRESHOLD < -lastXValGyro){
+        xgc += lastXValGyro*0.1;
+        //xChange = 1;
     }
-    if(lastYValGyro > GYRO_THRESHOLD){
-        ygc += lastYValGyro;
-        if(ygc< 0){
-            ygc= ygc*(-1);
-        }
-    }
-    if(lastZValGyro > GYRO_THRESHOLD){
-        zgc += lastZValGyro;
-        if(zgc< 0){
-            zgc= zgc*(-1);
-        }
+    if(lastYValGyro > GYRO_THRESHOLD || -GYRO_THRESHOLD < -lastYValGyro){
+        ygc += lastYValGyro*0.1;
     }
 
-    if(cos(xgc) != 0){
-        correctedX = fabs(lastXValAcc/cos(xgc));
-    }
-    if(cos(ygc) != 0){
-        correctedY = fabs(lastYValAcc/cos(ygc));
-    }
-    if(cos(zgc) != 0){
-        correctedZ = fabs((lastZValAcc-1)/cos(zgc));
-    }
+    // ygc += lastYValGyro*0.1;
+ 
+    // zgc += lastZValGyro*0.1;
+    //takes x-accel value and subtracts - depending on how much it is tilted on the 
+    //x gyro. shifts value from x-accel to z-acc so that the x accel becomes the new 
+    //z accel and vice versa
 
-    // Check if any absolute acceleration exceeds the threshold
-    if(correctedX > ACCELERATION_THRESHOLD){
-        printf("repeating Cor X \n");
-        calculateDistance(correctedX*9.8,0);
-    }
-    if(correctedY > ACCELERATION_THRESHOLD){
-        calculateDistance(correctedY*9.8,1);
-        printf("repeating Cor Y \n");
-    }
-    if(correctedZ > ACCELERATION_THRESHOLD){
-        calculateDistance((correctedZ)*9.8,2);
-        printf("repeating Cor z \n");
-    }
 
-    printf("x: %.2f - Y: %.2f - Z: %.2f  Distance: %f\n", lastXValGyro, lastYValGyro, lastZValGyro, totalDistance());
+    if(fabs(lastXValAcc)> ACCELERATION_THRESHOLD){
+        correctedX = lastXValAcc+sin((ygc)*M_PI/180);
+        calculateDistance(correctedX*GRAVITY*CALLIBRATION,0);
+    }
+    
+    if(fabs(lastYValAcc) > ACCELERATION_THRESHOLD){ 
+        correctedY = lastYValAcc+sin((xgc)*M_PI/180);
+        calculateDistance(correctedY*GRAVITY*CALLIBRATION,1);
+        //printf("repeating Cor Y \n");
+    }
+    
+    
+    
+    
+    //`correctedX = (lastXValAcc + sin(ygc*M_PI/180));
 
-    sleepForMs(100);
+    // // Check if any absolute acceleration exceeds the threshold
+    // if(correctedX > ACCELERATION_THRESHOLD){
+    //     calculateDistance(correctedX*9.8,0);
+    // }
+    // if(correctedY > ACCELERATION_THRESHOLD){ 
+    //     calculateDistance(correctedY*9.8,1);
+    //     //printf("repeating Cor Y \n");
+    // }
+
+    printf("GX: %.2f  GY: %.2f || CX: %.2f CY: %.2f || AX: %.2f AY: %.2f  || DISTANCE: %.2f m \n", xgc, ygc, correctedX, correctedY, lastXValAcc, lastYValAcc, distance);
+
+    // sleepForMs(100);
 }
 
 double totalDistance(void){
@@ -276,6 +279,7 @@ double totalDistance(void){
 void resetDistance(void){
     velocityx = 0;
     velocityy = 0;
-    velocityz = 0;
+    ygc = 0;
+    xgc = 0;
     distance = 0;
 }

@@ -3,29 +3,30 @@
 #include "network.h"
 #include <stdio.h>
 
+#define BEAGLE_ID 0
+
 int main(void)
 {
-    // ICM20948_init();
-    MotionSensor_init();
-    Network_init();
 
-    // Shutdown_waitForShutdown();
-    // resetDistance();
-    // resetTimePassed();
-    while (1) {
-        // getDistance();
-    };
-    // double time = returnTimePassed();
-    // double distance = returnDistance();
-    // double totalDistance = distance*time;
-    // printf("%f", totalDistance);
-    // Shutdown_cleanup();
-    // Accelerometer_cleanup();
-    // beatPattern_cleanup();
-    // AudioMixer_cleanup();
-    // Joystick_cleanup();
-    Network_cleanup();
-    ICM20948_cleanup();
+    if(BEAGLE_ID == 0){
+        ICM20948_init();
+        // Network_init();
+        // Network_cleanup();
+        // ICM20948_cleanup();
+    }
+    
+    if(BEAGLE_ID == 1){
+        Network_init();
+        Network_cleanup();
+    }
 
+    if(BEAGLE_ID == 2){
+        Network_init();
+        MotionSensor_init();
+    }  
+
+    while(1){
+
+    }
     return 0;
 }
